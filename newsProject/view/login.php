@@ -40,8 +40,8 @@
                 <form method="POST" action="" id="loginForm">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
-                    <i class="bi bi-slack"></i>
-                    <span class="h1 fw-bold mb-0">PEM-WEB NEWS STAFF</span>
+                    <i class="bi bi-slack" style="font-size: 5rem"></i>
+                    <span class="h1 fw-bold mb-0">PEM-WEB NEWS</span>
                   </div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>

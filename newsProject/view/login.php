@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<section class="vh-100" style="background-color: #9A616D;">
+<section class="vh-100 bg-image" style="background-image: url('assets/wallpaper.jpg');">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
@@ -29,7 +29,7 @@
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
               <img
-                src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/img1.jpg"
+                src="assets/login.jpg"
                 alt="login form"
                 class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
               />

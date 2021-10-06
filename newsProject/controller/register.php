@@ -9,6 +9,7 @@
             </script>";
             die;
         }
+        //sffss
 
         $namaDepan = $_POST["namaDepan"];
         $namaBelakang = $_POST["namaBelakang"];
@@ -42,6 +43,7 @@
  }
 }
 
+<<<<<<< HEAD
 
 include "view/register.php";
 
@@ -49,5 +51,8 @@ include "view/register.php";
 
 
 
+=======
+INCLUDE  "view/register.php";
+>>>>>>> 5245885ccb106c7fdb5aabf8e027ab543e2f7b82
 
 ?>

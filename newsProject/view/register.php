@@ -11,9 +11,6 @@
   <title>Register — </title>
 </head>
 <body>
-
-
-
 <div class="container">
     <div class="row">
       <div class="col-lg-2"></div>
@@ -68,7 +65,7 @@
                   <option value="wanita" class="form-select-option">Wanita</option>
                 </select>
               </div>
-              
+
               <!--tgl lahir-->
               <div class="col-lg-6 input-container">
                 <label class="form-label" for="tgl_lahir">Tanggal Lahir</label>

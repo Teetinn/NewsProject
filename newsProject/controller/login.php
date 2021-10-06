@@ -14,7 +14,7 @@ if(isset($_POST['submit'])) {
     if($result->num_rows > 0)
       $account = $result->fetch_assoc();
         if(password_verify($password, $account['password'])) {
-            echo "<form id='form' action='?view=home' method='POST'>
+            echo "<form id='form' action='?view=dashboard' method='POST'>
                     <input type='hidden' name='userName' value='{$account['userName']}'>
                  </form>
                  <script>

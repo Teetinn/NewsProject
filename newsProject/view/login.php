@@ -44,7 +44,7 @@
               <button name="submit" type="submit" class="btn btn-primary mt-4">Login</button>
             </form>
           </div>
-          <a href="register.php" class="link">Belum punya akun?</a>
+          <a href="?view=register" class="link">Belum punya akun?</a>
         </div>
       </div>
       <div class="col-lg-3"></div>

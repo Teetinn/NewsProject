@@ -1,5 +1,5 @@
 <?php 
-  INCLUDE "include/db_connection.php";
+  include "include/db_connection.php";
 
     if( isset($_POST["submit"]) ) {
         if(strcmp($_POST['password'], $_POST['konfirmasiPassword']) != 0) {
@@ -42,6 +42,12 @@
  }
 }
 
-INCLUDE  "/view/register.php";
+
+include "view/register.php";
+
+
+
+
+
 
 ?>

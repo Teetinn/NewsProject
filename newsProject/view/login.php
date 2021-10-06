@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - newsProject</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,38 +20,53 @@
     ></script>
 </head>
 <body>
-    <!--NavBar-->
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Berita Pasti Bisa</span>
-  </div>
-</nav>
-    <!--form login-->
-    <div class="container">
-    <div class="row">
-      <div class="col-lg-3"></div>
-      <div class="col-lg-6 card-container">
-        <div class="card w-100">
-          <div class="card-body">
-            <form method="POST" action="" id="loginForm">
-              <div class="">
-                <label class="form-label mt-4" for="userName">Username</label>
-                <input class="form-control" type="text" placeholder="please enter your username" name="userName"
-                  id="userName">
+
+<section class="vh-100" style="background-color: #9A616D;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img
+                src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/img1.jpg"
+                alt="login form"
+                class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+              />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form method="POST" action="" id="loginForm">
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="bi bi-slack"></i>
+                    <span class="h1 fw-bold mb-0">PEM-WEB NEWS STAFF</span>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" name="userName" class="form-control form-control-lg" placeholder="Username"/>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Password"/>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit" name="submit">Login</button>
+                  </div>
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="?view=register" style="color: #393f81;">Register here</a></p>
+                </form>
+
               </div>
-              <div class="">
-                <label class="form-label mt-4" for="password">Password</label>
-                <input class="form-control" type="password" name="password" id="password">
-              </div>
-              <button name="submit" type="submit" class="btn btn-primary mt-4">Login</button>
-            </form>
+            </div>
           </div>
-          <a href="?view=register" class="link">Belum punya akun?</a>
         </div>
       </div>
-      <div class="col-lg-3"></div>
     </div>
-
   </div>
+</section>
 </body>
 </html>

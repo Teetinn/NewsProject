@@ -29,7 +29,7 @@
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
               <img
-                src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/img1.jpg"
+                src="assets/login.jpg"
                 alt="login form"
                 class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
               />
@@ -40,8 +40,8 @@
                 <form method="POST" action="" id="loginForm">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
-                    <i class="bi bi-slack"></i>
-                    <span class="h1 fw-bold mb-0">PEM-WEB NEWS STAFF</span>
+                    <i class="bi bi-slack" style="font-size: 5rem"></i>
+                    <span class="h1 fw-bold mb-0">PEM-WEB NEWS</span>
                   </div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>

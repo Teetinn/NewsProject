@@ -1,0 +1,218 @@
+/* * {
+  border: 1px solid black;
+} */
+
+* {
+  font-size: 62.5%;
+}
+
+body {
+  background-image: url("wallpaper.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.center {
+  width: 50%;
+  margin: auto;
+  display: flex;
+}
+
+.ctr-container-header {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.container-header {
+  justify-content: center;
+  display: relative;
+  padding-top: 0.5rem;
+}
+
+.container-logo {
+  justify-content: center;
+  display: relative;
+  padding-top: 1rem;
+}
+
+.header-berita {
+  text-align: center;
+  font-family: "Lora", serif;
+  font-family: "Staatliches", cursive;
+  font-size: 50px;
+  margin: auto;
+  width: 80%;
+  padding: 15px;
+}
+
+.btn,
+.bi {
+  font-size: 1.6rem;
+}
+.bi-slack {
+  font-size: 5rem;
+  text-align: center;
+  margin: 40px;
+}
+
+.container-btn {
+  position: relative;
+}
+
+.login-btn,
+.regis-btn {
+  color: white;
+  float: right;
+  width: 35%;
+  height: 50%;
+  border: none;
+  background-color: rgb(51, 53, 61);
+  border-radius: 5px;
+  margin: 22px;
+  display: inline;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+}
+
+.login-btn:hover,
+.regis-btn:hover,
+.view-news:hover {
+  border: 1px rgb(51, 53, 61) solid;
+  background-color: white;
+  color: rgb(73, 73, 73);
+}
+
+.regis-btn {
+  margin-right: -10px;
+}
+
+.src-bar {
+  width: 35rem;
+  font-size: 1.5rem;
+}
+
+.src-btn {
+  font-size: 2rem;
+}
+
+.card {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.nav-item {
+  font-family: "Oswald", sans-serif;
+  width: 150px;
+  display: inline;
+  font-size: 2.5rem;
+}
+
+.color-white {
+  color: white;
+}
+
+.right {
+  float: right;
+}
+
+.side-card {
+  background-color: white;
+  color: rgb(51, 53, 61);
+}
+
+.card-title {
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.view-news {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  background-color: rgb(51, 53, 61);
+  width: 40%;
+}
+
+.container-footer {
+  background-color: rgb(51, 53, 61);
+  color: white;
+}
+.container-footer h2 {
+  font-size: 2.5rem;
+}
+.container-footer p,
+.container-footer ul li a {
+  font-size: 2 rem;
+}
+
+@media only screen and (max-width: 1250px) {
+  .container-btn {
+    display: block;
+  }
+
+  .login-btn,
+  .regis-btn {
+    width: 80%;
+    height: 30%;
+    margin: 20px;
+    display: block;
+  }
+
+  .regis-btn {
+    margin-top: -15px;
+  }
+}
+
+.footer-p {
+  font-size: 400rem;
+}
+
+@media only screen and (max-width: 820px) {
+  .container-btn {
+    display: block;
+  }
+
+  .login-btn,
+  .regis-btn {
+    width: 80%;
+    height: 30%;
+    margin: 20px;
+    display: block;
+  }
+
+  .regis-btn {
+    margin-top: -15px;
+  }
+
+  .header-berita {
+    width: 100%;
+    line-height: 8rem;
+  }
+
+  .bi-slack {
+    line-height: 10rem;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .bi-slack {
+    line-height: 13rem;
+  }
+
+  .header-berita {
+    width: 100%;
+    line-height: 4.5rem;
+  }
+
+  .container-header {
+    padding: 1.5rem;
+  }
+
+  .view-news {
+    width: 100%;
+  }
+
+  .src-bar {
+    width: 25rem;
+  }
+}

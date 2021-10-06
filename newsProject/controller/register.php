@@ -42,17 +42,7 @@
      echo "<script>alert('gagal registrasi')</script>";
  }
 }
-
-<<<<<<< HEAD
-
-include "view/register.php";
-
-
-
-
-
-=======
 INCLUDE  "view/register.php";
->>>>>>> 5245885ccb106c7fdb5aabf8e027ab543e2f7b82
+
 
 ?>

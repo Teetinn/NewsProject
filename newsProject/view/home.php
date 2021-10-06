@@ -33,14 +33,14 @@
     </div>
 
       <?php
-            INCLUDE __DIR__ .  '/../include/db_connection.php';
+            include 'include/db_connection.php';
             if (isset($_POST['userName'])){
                 $id = $_POST['userName'];
                 $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
                 $mhs = $result->fetch_assoc();
 
                 echo $_POST ['userName'];
-                echo " <a class='btn btn-danger' aria-current='page' href='?view=login'>Logout</a></nav>";
+                echo "<a class='btn btn-danger' aria-current='page' href='?view=login'>Logout</a></nav>";
             }
       ?>
 

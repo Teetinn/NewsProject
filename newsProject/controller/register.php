@@ -42,6 +42,6 @@
  }
 }
 
-INCLUDE  "/view/register.php";
+INCLUDE  "view/register.php";
 
 ?>

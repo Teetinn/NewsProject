@@ -134,21 +134,9 @@ body {
   width: 40%;
 }
 
-/* .container-footer {
-  background-color: rgb(51, 53, 61);
-  color: white;
+.footer-kategori {
+  font-size: 5rem;
 }
-.container-footer h2 {
-  font-size: 2.5rem;
-} */
-
-/* .footer-p {
-  font-size: 20rem;
-}
-
-.footer-link {
-  font-size: 20rem;
-} */
 
 @media only screen and (max-width: 1250px) {
   .container-btn {

@@ -2,7 +2,7 @@
   include "include/db_connection.php";
 
     if( isset($_POST["submit"]) ) {
-            if(empty($_POST['namaDepan']) || empty($_POST['namaBelakang']) || empty($_POST['username']) || empty($_POST['tgl_lahir']) || empty($_POST['jenisKelamin']) || empty($_POST['password']) || empty($_POST['konfirmasiPassword'])){
+            if(empty($_POST['namaDepan']) || empty($_POST['namaBelakang']) || empty($_POST['userName']) || empty($_POST['tgl_lahir']) || empty($_POST['jenisKelamin']) || empty($_POST['password']) || empty($_POST['konfirmasiPassword'])){
                 echo '<script>alert("All fields are required")</script>';
             }else{
             if(strcmp($_POST['password'], $_POST['konfirmasiPassword']) != 0) {

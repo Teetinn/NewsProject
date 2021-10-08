@@ -18,6 +18,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
 
@@ -31,7 +32,7 @@
               <img
                 src="assets/login.jpg"
                 alt="login form"
-                class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+                class="img-fluid" style="border-radius: 1rem 0 0 1rem; object-fit:cover; width:500px; height:680px;"
               />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
@@ -58,7 +59,7 @@
                     <button class="btn btn-dark btn-lg btn-block" type="submit" name="submit">Login</button>
                   </div>
 
-                  <div class="g-recaptcha" data-sitekey="6LfzZGYcAAAAAEyFCdIM7UepTdWiWSkXrM6zGGCz" style="margin-bottom: 10px;"></div>
+                  <div class="g-recaptcha" data-sitekey="6Lcy37EcAAAAADVIXmg52jbLCPt9A-UKaKb-EDRY" style="margin-bottom:10px; margin-top:12px;"></div>
 
                   <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="?view=register" style="color: #393f81;">Register here</a></p>
                 </form>

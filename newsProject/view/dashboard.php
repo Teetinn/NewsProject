@@ -14,12 +14,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Staatliches&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/main.css">
 
 </head>
 
 <body>
+
+  
   <div class="row ctr-container-header">
     <div class="container-logo col-3">
       <i class="bi bi-slack"></i>
@@ -29,16 +32,18 @@
     </div>
     <?php
     include 'include/db_connection.php'; 
-    if( isset($_POST['userName']) && !empty($_POST['userName']) ){
-      $id = $_POST['userName'];
+    if( isset($_SESSION["userName"]) && !empty($_SESSION['userName']) ){
+      $id = $_SESSION['userName'];
             $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
             $mhs = $result->fetch_assoc();
+            $fp = $mhs['foto'];
 
             echo "<div class='col-3' style='display:flex; align-items:right;'>";
-            echo "<p style='font-family: Oswald, sans-serif; font-size:3rem; margin-left:15rem; padding:2rem;'>" . $_POST ['userName'] . "</p>";
+            echo "<p style='font-family: Oswald, sans-serif; font-size:3rem;  padding:2rem;'>" . $_SESSION['userName'] . "</p>";
+            echo "<img style='margin-top:2rem; border-radius:50%;' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
+            echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
             echo "</div>";
-
-            echo " <a class='btn btn-danger' aria-current='page' href='?view=login'>Logout</a></nav>";
+        
         ?>
     <?php }else{ ?>
       <div class="container-btn col-3">
@@ -51,6 +56,8 @@
       </div>
     <?php } ?>
   </div>
+
+  
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
     <div class="container-fluid">
@@ -94,26 +101,50 @@
 
   <div style="height:20px"></div>
 
+  <?php
+    include "include/db_connection2.php";
+
+    $sql = "SELECT * FROM berita WHERE id = '001'";
+    $result = $db->query($sql);
+    
+    $row = $result->fetch_assoc();
+
+    // $bid = $_POST['id'];
+    // $judul = $_POST['judul'];
+
+  ?>
+
+
+
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-7">
-      <div class="card col-lg-11 border-light">
+    <div class="col-7" >
+      <div class="card col-lg-11 mb-5">
+        <img src="assets/bapak.jpg" class="card-img-top news-image" alt="...">
+        <div class="card-body main-container">
+        <?php 
+          echo "<p class='card-text main-card judul-berita'>" . $row['judul'] . "</p>";
+          // <p class="card-text main-card">Some quick example text to build on the card title and make up the bulk of the
+          //   card's content.</p>
+          
+          // echo "<p class='card-text main-card'>" . $row['konten'] . "</p>";
+        ?>
+          <div class="view-main-container">
+            <a href="?view=news" class="btn btn-primary view-main-news">Lihat Berita</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card col-lg-11 mb-5">
         <img src="assets/bapak.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <p class="card-text main-card">Some quick example text to build on the card title and make up the bulk of the
             card's content.</p>
+        
         </div>
       </div>
 
-      <div class="card col-lg-11 border-light">
-        <img src="assets/bapak.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-text main-card">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-        </div>
-      </div>
-
-      <div class="card col-lg-11 border-light">
+      <div class="card col-lg-11 mb-5">
         <img src="assets/bapak.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <p class="card-text main-card">Some quick example text to build on the card title and make up the bulk of the

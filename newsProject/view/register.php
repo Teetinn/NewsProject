@@ -83,6 +83,11 @@
                     </div>
                   </div>
 
+                  <div class="col-lg-12 input-container">
+                <label class="form-label" for="foto">Profil Foto</label>
+                <input class="form-control form-control-file" type="file" name="foto" id="foto">
+              </div>
+
                   <div class="d-flex justify-content-center">
                     <button type="submit" name="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                   </div>

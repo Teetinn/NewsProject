@@ -57,6 +57,9 @@
                   <div class="pt-1 mb-4">
                     <button class="btn btn-dark btn-lg btn-block" type="submit" name="submit">Login</button>
                   </div>
+
+                  <div class="g-recaptcha" data-sitekey="6LfzZGYcAAAAAEyFCdIM7UepTdWiWSkXrM6zGGCz" style="margin-bottom: 10px;"></div>
+
                   <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="?view=register" style="color: #393f81;">Register here</a></p>
                 </form>
 

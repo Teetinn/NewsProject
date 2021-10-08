@@ -87,6 +87,13 @@ body {
   margin-right: -10px;
 }
 
+/* .container-user {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+} */
+
 .src-bar {
   width: 35rem;
   font-size: 1.5rem;

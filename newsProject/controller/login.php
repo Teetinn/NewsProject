@@ -19,9 +19,9 @@ if(isset($_POST['submit'])) {
                  </form>
                  <script>
                     document.getElementById('form').submit();
-                 </script>
-            ";
-          
+                 </script>";
+                 
+            
            
         }else {
             echo "
@@ -32,6 +32,8 @@ if(isset($_POST['submit'])) {
             
             ";
         }
+
+        
        
 }
 

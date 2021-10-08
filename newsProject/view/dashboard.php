@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <?php session_start(); ?>
 
 <head>
   <title>Pem-Web News</title>
@@ -26,27 +27,29 @@
     <div class="container-header col-6">
       <h1 class="header-berita">PEM-WEB NEWS</h1>
     </div>
-    <div class="container-btn col-3">
-      <a href="?view=login" class="btn-login">
-        <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i>Login</button>
-      </a>
-      <a href="?view=register" class="btn-register"><button type="button" class="btn btn-primary regis-btn"><i
-            class="bi bi-person-plus-fill"></i>Register</button>
-      </a>
-    </div>
-
-    <!--kalo dah login-->
     <?php
-            include 'include/db_connection.php';
-            if (isset($_POST['userName'])){
-                $id = $_POST['userName'];
-                $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
-                $mhs = $result->fetch_assoc();
+    include 'include/db_connection.php'; 
+    if( isset($_POST['userName']) && !empty($_POST['userName']) ){
+      $id = $_POST['userName'];
+            $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
+            $mhs = $result->fetch_assoc();
 
-                echo $_POST ['userName'];
-                echo " <a class='btn btn-danger' aria-current='page' href='?view=login'>Logout</a></nav>";
-            }
-            ?>
+            echo "<div class='col-3' style='display:flex; align-items:right;'>";
+            echo "<p style='font-family: Oswald, sans-serif; font-size:3rem; margin-left:15rem; padding:2rem;'>" . $_POST ['userName'] . "</p>";
+            echo "</div>";
+
+            echo " <a class='btn btn-danger' aria-current='page' href='?view=login'>Logout</a></nav>";
+        ?>
+    <?php }else{ ?>
+      <div class="container-btn col-3">
+        <a href="?view=login" class="btn-login">
+          <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i>Login</button>
+        </a>
+        <a href="?view=register" class="btn-register"><button type="button" class="btn btn-primary regis-btn"><i
+              class="bi bi-person-plus-fill"></i>Register</button>
+        </a>
+      </div>
+    <?php } ?>
   </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
@@ -187,7 +190,7 @@
       <!--Grid row-->
       <div class="row">
         <!--Grid column-->
-        <div class="col-lg-9 d-flex justify-content-left footer-kategori">
+        <div class="col-lg-7 d-flex justify-content-left footer-kategori">
           <h5 class="text-uppercase" style="font-size:2rem; padding:2rem; margin-left:1.8rem;">Kategori</h5>
        
            <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
@@ -210,12 +213,11 @@
                 </li>
             </ul>
         </nav>
-
         </div>
 
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <div class="col-lg-5 mb-4 mb-md-0">
           <h5 class="text-uppercase">Links</h5>
 
           <ul class="list-unstyled mb-0">

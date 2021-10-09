@@ -21,7 +21,7 @@
   }
   </script>
   <script src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
-
+  <script src="assets/app.js"></script>
 
   <link rel="stylesheet" href="assets/main.css">
 
@@ -59,14 +59,14 @@
                 
                 echo "</div>";
           }else{ ?>
-      <div class="container-btn col-3">
-        <a href="?view=login" class="btn-login">
-          <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i>Login</button>
-        </a>
-        <a href="?view=register" class="btn-register"><button type="button" class="btn btn-primary regis-btn"><i
-              class="bi bi-person-plus-fill"></i>Register</button>
-        </a>
-      </div>
+    <div class="container-btn col-3">
+      <a href="?view=login" class="btn-login">
+        <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i>Login</button>
+      </a>
+      <a href="?view=register" class="btn-register"><button type="button" class="btn btn-primary regis-btn"><i
+            class="bi bi-person-plus-fill"></i>Register</button>
+      </a>
+    </div>
     <?php } ?>
   </div>
 
@@ -74,12 +74,12 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
     <div class="container-fluid">
-      <div class="burger" onclick="">
+      <div class="burger" onclick="drop()">
         <div class="line1"></div>
         <div class="line2"></div>
         <div class="line3"></div>
       </div>
-      <ul class="navbar-nav nav-links me-auto mb-2 mb-lg-0 nav-fill nav-justified">
+      <ul id="drop" class="navbar-nav nav-links toggle-hide me-auto mb-2 mb-lg-0 nav-fill nav-justified">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> Home</a>
         </li>

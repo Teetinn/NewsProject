@@ -28,8 +28,6 @@
 </head>
 
 <body>
-
-  
   <div class="row ctr-container-header">
     <div class="container-logo col-3">
       <i class="bi bi-slack"></i>
@@ -61,16 +59,14 @@
           }else{ ?>
     <div class="container-btn col-3">
       <a href="?view=login" class="btn-login">
-        <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i>Login</button>
+        <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i> Login</button>
       </a>
       <a href="?view=register" class="btn-register"><button type="button" class="btn btn-primary regis-btn"><i
-            class="bi bi-person-plus-fill"></i>Register</button>
+            class="bi bi-person-plus-fill"></i> Register</button>
       </a>
     </div>
     <?php } ?>
   </div>
-
-
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
     <div class="container-fluid">
@@ -122,7 +118,6 @@
     </div>
     </div>
   </nav>
-
   <div style="height:20px"></div>
 
   <?php
@@ -138,11 +133,9 @@
 
   ?>
 
-
-
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-7">
+    <div class="col-lg-7 col-md-12">
       <div class="card col-lg-11 mb-5">
         <img src="assets/bapak.jpg" class="card-img-top news-image" alt="...">
         <div class="card-body main-container">
@@ -176,7 +169,7 @@
         </div>
       </div>
     </div>
-    <div class="col-3 color-white">
+    <div class="col-lg-3 col-md-12 color-white">
       <div class="card text-end col-lg-11 side-card">
         <div class="card-body">
           <img src="assets/bapak.jpg" class="card-img-top" alt="...">
@@ -211,8 +204,6 @@
 
 <!-- Footer -->
 <footer class="bg-dark text-center text-white">
-
-
   <!-- Section: Form -->
   <section class="">
     <form action="">
@@ -246,31 +237,6 @@
     <div class="row">
       <!--Grid column-->
       <div class="col-lg-7 d-flex justify-content-left footer-kategori">
-        <h5 class="text-uppercase" style="font-size:2rem; padding:2rem; margin-left:1.8rem;">Kategori</h5>
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
-          <div class="container-fluid">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill nav-justified">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Bisnis</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bicycle"></i> Olahraga</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-cash-coin"></i> Ekonomi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-controller"></i> Hiburan</a>
-              </li>
-            </ul>
-        </nav>
       </div>
 
 

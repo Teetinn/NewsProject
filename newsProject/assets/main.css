@@ -7,20 +7,15 @@
 }
 
 body {
-  background-image: url("wallpaper.jpg");
+  /* background-image: url("wallpaper.jpg"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: "Montserrat", sans-serif;
 }
 
-/* .center {
-  width: 50%;
-  margin: auto;
-  display: flex;
-} */
-
 .ctr-container-header {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #212529;
 }
 
 .container-header {
@@ -43,6 +38,7 @@ body {
   margin: auto;
   width: 80%;
   padding: 15px;
+  color: white;
 }
 
 .btn,
@@ -54,6 +50,16 @@ body {
   font-size: 5rem;
   text-align: center;
   margin: 40px;
+  color: white;
+}
+
+.navbar {
+  margin-bottom: 4rem;
+}
+
+.profile.pic {
+  padding: 2rem;
+  border-radius: 50%;
 }
 
 .container-btn {
@@ -77,22 +83,22 @@ body {
 
 .login-btn:hover,
 .regis-btn:hover,
-.view-news:hover {
+.view-news:hover,
+input[type="submit"]:hover,
+.view-main-news:hover,
+.view-main-news:active,
+.view-main-news:focus,
+.view-main-news:active:focus {
   border: 1px rgb(51, 53, 61) solid;
   background-color: white;
   color: rgb(73, 73, 73);
+  box-shadow: none;
+  outline: none;
 }
 
 .regis-btn {
   margin-right: -10px;
 }
-
-/* .container-user {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-} */
 
 .src-bar {
   width: 35rem;
@@ -106,6 +112,12 @@ body {
 .card {
   margin-bottom: 1rem;
   font-size: 3rem;
+  box-shadow: 2px 1px 4px 2px rgba(87, 87, 87, 0.5);
+}
+
+.bi-square-fill {
+  padding: 0rem 1rem 0.5rem 1rem;
+  font-size: 1rem;
 }
 
 .nav-item {
@@ -134,11 +146,90 @@ body {
   font-weight: 700;
 }
 
+.judul-berita {
+  font-size: 3rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  font-weight: 700;
+}
+
+.konten-berita {
+  font-size: 1.5rem;
+  padding: 3rem 1rem 3rem 1rem;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.kategori-berita,
+.tanggal-berita {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  color: rgb(175, 6, 6);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.comment-container {
+  padding: 1rem;
+  margin: 3rem;
+  background-color: rgb(250, 242, 240);
+  height: 28rem;
+}
+
+.header-comment {
+  padding: 2.5rem 1rem 2.5rem 1rem;
+  color: rgb(51, 53, 61);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.space-comment {
+  margin: 0rem 4.5rem 0rem 3rem;
+  width: 90%;
+  font-size: 1.5rem;
+  text-align: justify;
+  color: rgb(145, 145, 145);
+}
+
+input[type="submit"] {
+  color: white;
+  float: right;
+  width: 15%;
+  padding: 1rem;
+  border: none;
+  background-color: rgb(51, 53, 61);
+  border-radius: 3px;
+  margin: 22px;
+  margin-right: 40px;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+}
+
+.main-container {
+  border: none;
+  border-radius: 4px;
+}
+
+.view-main-container {
+  text-align: right;
+}
+
+.view-main-news {
+  font-size: 1.5rem;
+  background-color: rgb(51, 53, 61);
+  width: 100%;
+}
+
 .view-news {
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
   background-color: rgb(51, 53, 61);
   width: 40%;
+}
+
+.news-image {
+  width: 100%;
 }
 
 .footer-kategori {
@@ -151,7 +242,8 @@ body {
   }
 
   .login-btn,
-  .regis-btn {
+  .regis-btn,
+  input[type="submit"] {
     width: 80%;
     height: 30%;
     margin: 20px;

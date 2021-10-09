@@ -68,7 +68,7 @@ body {
   width: 35%;
   height: 50%;
   border: none;
-  background-color: rgb(51, 53, 61);
+  background-color: rgb(87, 90, 104);
   border-radius: 5px;
   margin: 22px;
   display: inline;
@@ -78,7 +78,7 @@ body {
 
 .profile-picture {
   padding: 2rem;
-  border-radius: 50%;
+  border-radius: 100%;
   width: 10rem;
   height: auto;
 }
@@ -110,12 +110,14 @@ body {
 .view-news:hover,
 input[type="submit"]:hover,
 .view-main-news:hover,
+.insert-btn:hover,
+.upload-btn:hover,
 .view-main-news:active,
 .view-main-news:focus,
 .view-main-news:active:focus {
-  border: 1px rgb(51, 53, 61) solid;
-  background-color: white;
-  color: rgb(73, 73, 73);
+  border: none;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   box-shadow: none;
   outline: none;
 }
@@ -233,7 +235,7 @@ input[type="submit"] {
   width: 15%;
   padding: 1rem;
   border: none;
-  background-color: rgb(51, 53, 61);
+  background-color: rgb(87, 90, 104);
   border-radius: 3px;
   margin: 22px;
   margin-right: 40px;
@@ -252,14 +254,16 @@ input[type="submit"] {
 
 .view-main-news {
   font-size: 1.5rem;
-  background-color: rgb(51, 53, 61);
+  background-color: rgb(87, 90, 104);
+  border: none;
   width: 100%;
 }
 
 .view-news {
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
-  background-color: rgb(51, 53, 61);
+  background-color: rgb(87, 90, 104);
+  border: none;
   width: 40%;
 }
 
@@ -276,8 +280,26 @@ input[type="submit"] {
   box-shadow: 2px 1px 4px 2px rgba(87, 87, 87, 0.5);
 }
 
+.insert-container {
+  width: 100%;
+  height: auto;
+  margin: 0rem 0rem 8rem -4rem;
+}
+
 .insert-btn {
   float: right;
+  height: 5rem;
+  padding: 1rem;
+  border-radius: 3px;
+  background-color: rgb(51, 53, 61);
+}
+
+.admin-row {
+  padding: 1rem;
+}
+
+.konten-berita-admin {
+  font-size: 1.5rem;
 }
 
 th {
@@ -295,6 +317,10 @@ tbody {
   text-align: justify;
 }
 
+.action-button {
+  padding: 0.2rem;
+}
+
 .judul-admin {
   text-align: left;
   width: 10%;
@@ -306,6 +332,61 @@ tbody {
 
 .footer-p {
   font-size: 400rem;
+}
+
+.insert-data-container {
+  margin-top: 3rem;
+  padding: 2rem 3rem 2rem 3rem;
+  box-shadow: 2px 1px 4px 2px rgba(87, 87, 87, 0.5);
+  border-radius: 3px;
+  height: 100%;
+}
+
+.insert-form {
+  /* margin-top: 4rem; */
+  width: 100%;
+}
+
+.form-label {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgb(51, 53, 61);
+}
+
+option {
+  font-size: 1rem;
+}
+
+.input-box {
+  height: 3rem;
+  border-radius: 3px;
+}
+
+.upload-btn,
+.cancel-btn {
+  float: right;
+  width: 20%;
+  height: 50%;
+  border: none;
+  border-radius: 3px;
+  margin: 10px;
+  display: inline;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.upload-btn {
+  background-color: rgb(87, 90, 104);
+  color: white;
+}
+
+.container-user-view {
+  width: 100%;
+}
+
+.user-view-btn {
+  width: 100%;
 }
 
 @media only screen and (max-width: 1250px) {

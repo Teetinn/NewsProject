@@ -68,6 +68,12 @@
     <?php } ?>
   </div>
 
+<div class="row">
+  <div class="container-user-view">
+    <a href="?view=dashboard" class="btn btn-danger user-view-btn">View News From User View</a>
+  </div>
+</div>
+
 
 <div class='container admin-content'>
     <div class="insert-container">
@@ -90,6 +96,7 @@
                     <th scope='col'>Action</th>
                 </tr>
             </thead>
+            
 
             <tbody>
                  <?php
@@ -98,15 +105,14 @@
                     echo "<td class='judul-admin'>" . $berita->judul . "</td>";
                     echo "<td>" . $berita->kategori . "</td>";
                     echo "<td>" . $berita->penulis . "</td>";
-                    echo "<td>" . $berita->konten . "</td>";
+                    echo "<td class='konten-berita-admin'>". "<div class='admin-row'>" . $berita->konten . "</div>" . "</td>";
                     echo "<td>" . $berita->tanggal . "</td>";
                     echo "<td> <img src=\"{$berita->gambar}\" width = '200' height = '150'> </td>";
-                    echo "<td> <a href=\"?view=deleteBerita&id={$berita->id}\" style=\"color:black\">
-                               Delete</a>
-                               <a href=\"?view=editberita&id={$berita->id}\" style=\"color:black\">
-                               Edit<a>
-                           </td>";
+                    echo "<td> <a class='action-button' href=\"?view=deleteBerita&id={$berita->id}\" style='color:black; margin-left:0.7rem;'><i class='bi bi-x-square-fill'></i></a>
+                               <a class='action-button' href=\"?view=editberita&id={$berita->id}\" style=\"color:black\"><i class='bi bi-pencil-fill'></i></a>
+                          </td>";
                  echo "</tr>";
+                
                 }
                 mysqli_free_result($result);
                 mysqli_close($db);
@@ -124,8 +130,14 @@
 
     <script>
       function enter(){
+        var kid = document.getElementById('id-konten');
+        var splitted = kid.textContent.split("\n");
         
-      }
+        var bebas = splitted.map(text => !text.length ? "<br>" : text)
+
+        kid.innerHTML = bebas.join('');
+        console.log(bebas)
+       }
 
       enter();
     </script>

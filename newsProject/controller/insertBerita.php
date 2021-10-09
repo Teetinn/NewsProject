@@ -39,7 +39,7 @@
            $kategori = $_POST["kategori"];
            $penulis = $_POST["penulis"];
            $konten = $_POST["konten"];
-          $tanggal = $_POST["tanggal"];
+        $tanggal = $_POST["tanggal"];
            $id = uniqid('');
            $gambar = $_POST["gambar"];
     

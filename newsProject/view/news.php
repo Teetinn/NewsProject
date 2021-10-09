@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +23,7 @@
 </head>
 
 <body>
-  <<div class="row ctr-container-header">
+  <div class="row ctr-container-header">
     <div class="container-logo col-3">
       <i class="bi bi-slack"></i>
     </div>
@@ -34,10 +38,10 @@
             $mhs = $result->fetch_assoc();
             $fp = $mhs['foto'];
 
-            echo "<div class='col-3' style='display:flex; align-items:right;'>";
-            echo "<p style='font-family: Oswald, sans-serif; font-size:3rem;  padding:2rem;'>" . $_SESSION['userName'] . "</p>";
-            echo "<img style='margin-top:2rem; border-radius:50%;' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
-            echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
+            echo "<div class='col-3' style='display:flex;'>";
+                echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
+                echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
+                echo "<img class='profile-picture' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
             echo "</div>";
         
         ?>
@@ -78,12 +82,6 @@
           <a class="nav-link" aria-current="page" href="#"><i class="bi bi-controller"></i> Hiburan</a>
         </li>
       </ul>
-
-      <form class="d-flex">
-        <input class="form-control me-2 src-bar" style="margin:3px" type="search" placeholder="Search"
-          aria-label="Search">
-        <button class="btn right btn-outline-light src-btn" type="submit"><i class="bi bi-search"></i></button>
-      </form>
     </div>
     </div>
   </nav>
@@ -125,7 +123,7 @@
 
           // echo "<p class='card-text main-card judul-berita'>" . $row['judul'] . "</p>";
         
-          echo "<p class='card-text main-card konten-berita'>" . $row['konten'] . "</p>";
+          echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $row['konten'] . "</p>";
         ?>
 
         
@@ -200,31 +198,7 @@
       <div class="row">
         <!--Grid column-->
         <div class="col-lg-7 d-flex justify-content-left footer-kategori">
-          <h5 class="text-uppercase" style="font-size:2rem; padding:2rem; margin-left:1.8rem;">Kategori</h5>
-       
-           <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
-            <div class="container-fluid">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill nav-justified">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Bisnis</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bicycle"></i> Olahraga</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-cash-coin"></i> Ekonomi</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-controller"></i> Hiburan</a>
-                </li>
-            </ul>
-        </nav>
+         
         </div>
 
 
@@ -264,6 +238,19 @@
 </footer>
 <!-- Footer -->
 
+ <script>
+    function enter(){
+      var kid = document.getElementById('id-konten');
+      var splitted = kid.textContent.split("\n");
+      
+      var bebas = splitted.map(text => !text.length ? "<br><br>" : text)
+
+      kid.innerHTML = bebas.join('');
+      console.log(bebas)
+      }
+
+    enter();
+  </script>
 
  
 </body>

@@ -48,14 +48,14 @@
                 if($mhs['type'] == "user"){
                   echo "<script>alert('welcome user')alert</script>";
                 } else{
-                    $ctr = 1;
+
                     echo "<script>document.location.href='?view=admin';</script>";
                 }
 
                 echo "<div class='col-3' style='display:flex;'>";
                 echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
                 echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
-                echo "<img class='profile-picture' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
+                echo "<img class='profile-picture' src=\"profileimg/{$fp}\">";
                 
                 echo "</div>";
           }else{ ?>

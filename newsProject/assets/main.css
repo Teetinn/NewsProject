@@ -81,6 +81,25 @@ body {
 	font-size: 16px;
 }
 
+.login-username {
+  font-family: Oswald, sans-serif;
+  font-size: 3rem;
+  padding: 2rem;
+  color: white;
+}
+
+.logout-btn {
+  float: right;
+  width: 35%;
+  height: 50%;
+  border: none;
+  border-radius: 5px;
+  margin: 22px;
+  display: inline;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+}
+
 .login-btn:hover,
 .regis-btn:hover,
 .view-news:hover,

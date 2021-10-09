@@ -68,7 +68,12 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
     <div class="container-fluid">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill nav-justified">
+      <div class="burger" onclick="">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="navbar-nav nav-links me-auto mb-2 mb-lg-0 nav-fill nav-justified">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> Home</a>
         </li>
@@ -92,12 +97,11 @@
         </li>
       </ul>
 
-
-      <form class="d-flex">
+      <!-- <form class="d-flex">
         <input class="form-control me-2 src-bar" style="margin:3px" type="search" placeholder="Search"
           aria-label="Search">
         <button class="btn right btn-outline-light src-btn" type="submit"><i class="bi bi-search"></i></button>
-      </form>
+      </form> -->
 
       <!-- <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle user-action"><img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" class="avatar" alt="Avatar"> Antonio Moreno <b class="caret"></b></a>

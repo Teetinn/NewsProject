@@ -63,10 +63,16 @@
     <div class="container-fluid">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill nav-justified">
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Nasional</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Bisnis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
+          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bicycle"></i> Olahraga</a>
@@ -78,6 +84,7 @@
           <a class="nav-link" aria-current="page" href="#"><i class="bi bi-controller"></i> Hiburan</a>
         </li>
       </ul>
+
 
       <form class="d-flex">
         <input class="form-control me-2 src-bar" style="margin:3px" type="search" placeholder="Search"
@@ -127,7 +134,7 @@
           // <p class="card-text main-card">Some quick example text to build on the card title and make up the bulk of the
           //   card's content.</p>
           
-          // echo "<p class='card-text main-card'>" . $row['konten'] . "</p>";
+          echo "<p class='card-text main-card kategori-berita'>" . $row['kategori'] . "<i class='bi bi-square-fill'></i>" . $row['tanggal'] ."</p>";
         ?>
           <div class="view-main-container">
             <a href="?view=news" class="btn btn-primary view-main-news">Lihat Berita</a>
@@ -228,10 +235,13 @@
             <div class="container-fluid">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill nav-justified">
                 <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Home</a>
+                </li>
+                <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Bisnis</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
+                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bicycle"></i> Olahraga</a>

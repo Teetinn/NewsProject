@@ -15,7 +15,7 @@ body {
 }
 
 .ctr-container-header {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #212529;
 }
 
 .container-header {
@@ -38,6 +38,7 @@ body {
   margin: auto;
   width: 80%;
   padding: 15px;
+  color: white;
 }
 
 .btn,
@@ -49,6 +50,11 @@ body {
   font-size: 5rem;
   text-align: center;
   margin: 40px;
+  color: white;
+}
+
+.navbar {
+  margin-bottom: 4rem;
 }
 
 .profile.pic {
@@ -78,6 +84,7 @@ body {
 .login-btn:hover,
 .regis-btn:hover,
 .view-news:hover,
+input[type="submit"]:hover,
 .view-main-news:hover,
 .view-main-news:active,
 .view-main-news:focus,
@@ -108,6 +115,11 @@ body {
   box-shadow: 2px 1px 4px 2px rgba(87, 87, 87, 0.5);
 }
 
+.bi-square-fill {
+  padding: 0rem 1rem 0.5rem 1rem;
+  font-size: 1rem;
+}
+
 .nav-item {
   font-family: "Oswald", sans-serif;
   width: 150px;
@@ -136,15 +148,62 @@ body {
 
 .judul-berita {
   font-size: 3rem;
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
   font-weight: 700;
 }
 
 .konten-berita {
   font-size: 1.5rem;
-  padding: 1rem;
+  padding: 3rem 1rem 3rem 1rem;
   font-weight: 500;
   text-align: justify;
+}
+
+.kategori-berita,
+.tanggal-berita {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  color: rgb(175, 6, 6);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.comment-container {
+  padding: 1rem;
+  margin: 3rem;
+  background-color: rgb(250, 242, 240);
+  height: 28rem;
+}
+
+.header-comment {
+  padding: 2.5rem 1rem 2.5rem 1rem;
+  color: rgb(51, 53, 61);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.space-comment {
+  margin: 0rem 4.5rem 0rem 3rem;
+  width: 90%;
+  font-size: 1.5rem;
+  text-align: justify;
+  color: rgb(145, 145, 145);
+}
+
+input[type="submit"] {
+  color: white;
+  float: right;
+  width: 15%;
+  padding: 1rem;
+  border: none;
+  background-color: rgb(51, 53, 61);
+  border-radius: 3px;
+  margin: 22px;
+  margin-right: 40px;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
 }
 
 .main-container {
@@ -183,7 +242,8 @@ body {
   }
 
   .login-btn,
-  .regis-btn {
+  .regis-btn,
+  input[type="submit"] {
     width: 80%;
     height: 30%;
     margin: 20px;

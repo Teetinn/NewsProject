@@ -55,10 +55,16 @@
     <div class="container-fluid">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill nav-justified">
         <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="?view=dashboard"><i class="bi bi-briefcase"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Nasional</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Bisnis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
+          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bicycle"></i> Olahraga</a>
@@ -115,20 +121,167 @@
     <div class="col-1"></div>
     <div class="col-7" >
       <div class="card col-lg-11 mb-5">
-        <img src="assets/bapak.jpg" class="card-img-top news-image" alt="...">
+        
+     
         <div class="card-body main-container">
-        <?php 
-         
+        <?php  
           echo "<p class='card-text main-card judul-berita'>" . $row['judul'] . "</p>";
+          echo "<p class='card-text main-card kategori-berita'>" . $row['kategori'] . "<i class='bi bi-square-fill'></i>" . $row['tanggal'] ."</p>";
+        ?>
+          <img src="assets/bapak.jpg" class="card-img-top news-image" alt="...">
+        <?php
+         //taro echo foto dsini
+
+          // echo "<p class='card-text main-card judul-berita'>" . $row['judul'] . "</p>";
         
           echo "<p class='card-text main-card konten-berita'>" . $row['konten'] . "</p>";
         ?>
-          <!-- <div class="view-main-container">
-            <a href="?view=news" class="btn btn-primary view-main-news">Lihat Berita</a>
-          </div> -->
+          <div class="comment-container" id="comment-form">
+            <h1 class="header-comment">Komentar</h1>
+            <form action="">
+              <textarea class="space-comment" rows="4" cols="50" name="comment" form="comment-form">
+              </textarea>
+              <input type="submit" value="Kirim">
+            </form>
+          </div>
         </div>
       </div>
     </div>
+
+
+    <div class="col-3 color-white">
+      <div class="card text-end col-lg-11 side-card">
+        <div class="card-body">
+          <img src="assets/bapak.jpg" class="card-img-top" alt="...">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary view-news">Lihat Berita</a>
+        </div>
+      </div>
+      <br>
+      <div class="card text-end col-lg-11 side-card">
+        <div class="card-body">
+          <img src="assets/bapak.jpg" class="card-img-top" alt="...">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary view-news">Lihat Berita</a>
+        </div>
+      </div>
+      <br>
+      <div class="card text-end col-lg-11 side-card">
+        <div class="card-body">
+          <img src="assets/bapak.jpg" class="card-img-top" alt="...">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary view-news">Lihat Berita</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+  </div>
+
+
+  <footer class="bg-dark text-center text-white">
+ 
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-left">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2" style="font-size:5rem; margin-top:2rem;">
+                <i class="bi bi-slack"></i><strong>PEM-WEB NEWS</strong>
+            </p>
+          </div>
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <!-- <section class="mb-4">
+      <p style="font-size:2rem; padding: 5rem;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section> -->
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-7 d-flex justify-content-left footer-kategori">
+          <h5 class="text-uppercase" style="font-size:2rem; padding:2rem; margin-left:1.8rem;">Kategori</h5>
+       
+           <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
+            <div class="container-fluid">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill nav-justified">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Bisnis</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bicycle"></i> Olahraga</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-cash-coin"></i> Ekonomi</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"><i class="bi bi-controller"></i> Hiburan</a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+
+
+        <!--Grid column-->
+        <div class="col-lg-5 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size:1.5rem;">
+    © 2021 Copyright 
+    <p style="font-size:1rem; padding-top:0.5rem;">Pem-Web News</p>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
 
  
 </body>

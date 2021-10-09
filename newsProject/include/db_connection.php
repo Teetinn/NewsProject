@@ -7,5 +7,4 @@
 
     $query = "SELECT * FROM user";
     $result = $db->query($query);
-   
 ?>

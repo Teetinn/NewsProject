@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="row ctr-container-header">
+  <<div class="row ctr-container-header">
     <div class="container-logo col-3">
       <i class="bi bi-slack"></i>
     </div>
@@ -28,16 +28,18 @@
     </div>
     <?php
     include 'include/db_connection.php'; 
-    if( isset($_POST['userName']) && !empty($_POST['userName']) ){
-      $id = $_POST['userName'];
+    if( isset($_SESSION["userName"]) && !empty($_SESSION['userName']) ){
+      $id = $_SESSION['userName'];
             $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
             $mhs = $result->fetch_assoc();
+            $fp = $mhs['foto'];
 
             echo "<div class='col-3' style='display:flex; align-items:right;'>";
-            echo "<p style='font-family: Oswald, sans-serif; font-size:3rem; margin-left:15rem; padding:2rem;'>" . $_POST ['userName'] . "</p>";
+            echo "<p style='font-family: Oswald, sans-serif; font-size:3rem;  padding:2rem;'>" . $_SESSION['userName'] . "</p>";
+            echo "<img style='margin-top:2rem; border-radius:50%;' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
+            echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
             echo "</div>";
-
-            echo " <a class='btn btn-danger' aria-current='page' href='?view=login'>Logout</a></nav>";
+        
         ?>
     <?php }else{ ?>
       <div class="container-btn col-3">
@@ -82,17 +84,6 @@
           aria-label="Search">
         <button class="btn right btn-outline-light src-btn" type="submit"><i class="bi bi-search"></i></button>
       </form>
-
-      <!-- <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle user-action"><img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" class="avatar" alt="Avatar"> Antonio Moreno <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#"><i class="fa fa-user-o"></i> Profile</a></li>
-                        <li><a href="#"><i class="fa fa-calendar-o"></i> Calendar</a></li>
-                        <li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
-                    </ul>
-                </li> -->
     </div>
     </div>
   </nav>
@@ -136,19 +127,25 @@
         
           echo "<p class='card-text main-card konten-berita'>" . $row['konten'] . "</p>";
         ?>
+
+        
           <div class="comment-container" id="comment-form">
             <h1 class="header-comment">Komentar</h1>
-            <form action="">
-              <textarea class="space-comment" rows="4" cols="50" name="comment" form="comment-form">
-              </textarea>
-              <input type="submit" value="Kirim">
-            </form>
+            <?php
+              echo "<form method='POST' action=''>
+                <input type='hidden' name='uid' value='Anonymous'>
+                <input type='hidden' name='date' value=''>
+                <textarea class='space-comment' rows='4' cols='50' name='message'>
+                </textarea>
+                <button type='submit' name='commentSubmit'>Kirim</button>
+              </form>";
+            ?>
           </div>
         </div>
       </div>
     </div>
 
-
+      
     <div class="col-3 color-white">
       <div class="card text-end col-lg-11 side-card">
         <div class="card-body">
@@ -183,9 +180,6 @@
 
 
   <footer class="bg-dark text-center text-white">
- 
-
-    <!-- Section: Form -->
     <section class="">
       <form action="">
         <!--Grid row-->
@@ -200,19 +194,7 @@
         <!--Grid row-->
       </form>
     </section>
-    <!-- Section: Form -->
 
-    <!-- Section: Text -->
-    <!-- <section class="mb-4">
-      <p style="font-size:2rem; padding: 5rem;">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-        eum harum corrupti dicta, aliquam sequi voluptate quas.
-      </p>
-    </section> -->
-    <!-- Section: Text -->
-
-    <!-- Section: Links -->
     <section class="">
       <!--Grid row-->
       <div class="row">

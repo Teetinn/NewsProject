@@ -375,14 +375,27 @@ input[type="submit"] {
 
 @media only screen and (max-width: 530px) {
 	.navbar-nav {
-		display: inline;
 		display: none;
-
-		margin-top: 10px;
+		margin-top: 15px;
 	}
 
 	.burger {
 		display: block;
 		margin-left: 47%;
+	}
+
+	.toggle-hide {
+		display: inline;
+		animation: opacity 0.25s ease-in-out;
+		transition: 0.5s;
+	}
+}
+
+@keyframes opacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }

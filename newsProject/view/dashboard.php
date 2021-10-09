@@ -29,14 +29,14 @@
 
 <body>
 
-
-  <div class="row ctr-container-header">
+  
+  <!-- <div class="row ctr-container-header">
     <div class="container-logo col-3">
       <i class="bi bi-slack"></i>
     </div>
     <div class="container-header col-6">
       <h1 class="header-berita">PEM-WEB NEWS</h1>
-    </div>
+    </div> -->
     <?php
     include 'include/db_connection.php'; 
     if( isset($_SESSION["userName"]) && !empty($_SESSION['userName']) ){
@@ -46,14 +46,23 @@
                 $mhs = $result->fetch_assoc();
                 $fp = $mhs['foto'];
                 if($mhs['type'] == "user"){
-                  echo "user view";
+                  echo "<script>alert('welcome user')alert</script>";
                 } else{
                     $ctr = 1;
                     echo "<script>document.location.href='?view=admin';</script>";
                 }
 
+                echo "<div class='row ctr-container-header'>
+                        <div class='container-logo col-3'>
+                          <i class='bi bi-slack'></i>
+                        </div>
+                        <div class='container-header col-6'>
+                          <h1 class='header-berita'>PEM-WEB NEWS</h1>
+                        </div>";
+
                 echo "<div class='col-3' style='display:flex; align-items:right;'>";
-                echo "<p style='font-family: Oswald, sans-serif; font-size:3rem;  padding:2rem;'>" . $_SESSION['userName'] . "</p>";
+                echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
+                // echo "<p style='font-family: Oswald, sans-serif; font-size:3rem;  padding:2rem;'>" . $_SESSION['userName'] . "</p>";
                 echo "<img style='margin-top:2rem; border-radius:50%;' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
                 echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
                 echo "</div>";

@@ -26,13 +26,13 @@
 </head>
 <body>
 
- <div class="row ctr-container-header">
+ <!-- <div class="row ctr-container-header">
     <div class="container-logo col-3">
       <i class="bi bi-slack"></i>
     </div>
     <div class="container-header col-6">
       <h1 class="header-berita">PEM-WEB NEWS</h1>
-    </div>
+    </div> -->
     <?php
     include 'include/db_connection.php'; 
     if( isset($_SESSION["userName"]) && !empty($_SESSION['userName']) ){
@@ -41,16 +41,20 @@
                 $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
                 $mhs = $result->fetch_assoc();
                 $fp = $mhs['foto'];
-                if($mhs['type'] == "user"){
-                  echo "user view";
-                } else{
-                  echo "admin view";
-                }
 
-                echo "<div class='col-3' style='display:flex; align-items:right;'>";
-                echo "<p style='font-family: Oswald, sans-serif; font-size:3rem;  padding:2rem;'>" . $_SESSION['userName'] . "</p>";
-                echo "<img style='margin-top:2rem; border-radius:50%;' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
+                echo "<div class='row ctr-container-header'>
+                        <div class='container-logo col-3'>
+                          <i class='bi bi-slack'></i>
+                        </div>
+                        <div class='container-header col-6'>
+                          <h1 class='header-berita'>PEM-WEB NEWS</h1>
+                      </div>";
+
+                echo "<div class='col-3' style='display:flex;'>";
                 echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
+                echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
+                echo "<img class='profile-picture' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
+                
                 echo "</div>";
           }else{ ?>
       <div class="container-btn col-3">
@@ -65,10 +69,16 @@
   </div>
 
 
-<div class='container'><a href='?view=insertberita'>
-    <button type='button' class='Add btn btn-primary'><i class='bi bi-plus-circle-fill'></i>
-                                  Add Berita</button></a>
-    <table id='dataTable' class='table table-striped table-bordered dataTable'>
+<div class='container admin-content'>
+    <div class="insert-container">
+      <a href='?view=insertberita'>
+        <button type='button' class='btn btn-primary insert-btn'>
+          <i class='bi bi-plus-circle-fill'></i> Insert Berita
+        </button>
+      </a>
+    </div>
+    <div class="table-container">
+    <table id='dataTable' class='table table-striped table-bordered dataTable table-light'>
             <thead>
                 <tr>
                     <th scope='col'>Judul</th>
@@ -78,14 +88,14 @@
                     <th scope='col'>Tanggal Publikasi</th>
                     <th scope='col'>Picture</th>
                     <th scope='col'>Action</th>
-                    </tr>
-                    </thead>
+                </tr>
+            </thead>
 
             <tbody>
                  <?php
                  foreach($news as $berita){
                     echo "<tr>";
-                    echo "<td>" . $berita->judul . "</td>";
+                    echo "<td class='judul-admin'>" . $berita->judul . "</td>";
                     echo "<td>" . $berita->kategori . "</td>";
                     echo "<td>" . $berita->penulis . "</td>";
                     echo "<td>" . $berita->konten . "</td>";
@@ -109,6 +119,15 @@
                     </tr>
             </tfoot>
     </table>
+              </div>
     </div>
+
+    <script>
+      function enter(){
+        
+      }
+
+      enter();
+    </script>
 </body>
 </html>

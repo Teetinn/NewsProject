@@ -40,27 +40,32 @@
     <?php
     include 'include/db_connection.php'; 
     if( isset($_SESSION["userName"]) && !empty($_SESSION['userName']) ){
-      $id = $_SESSION['userName'];
-            $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
-            $mhs = $result->fetch_assoc();
-            $fp = $mhs['foto'];
+      
+          $id = $_SESSION['userName'];
+                $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
+                $mhs = $result->fetch_assoc();
+                $fp = $mhs['foto'];
+                if($mhs['type'] == "user"){
+                  echo "user view";
+                } else{
+                    $ctr = 1;
+                    echo "<script>document.location.href='?view=admin';</script>";
+                }
 
-            echo "<div class='col-3' style='display:flex; align-items:right;'>";
-            echo "<p style='font-family: Oswald, sans-serif; font-size:3rem;  padding:2rem;'>" . $_SESSION['userName'] . "</p>";
-            echo "<img style='margin-top:2rem; border-radius:50%;' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
-            echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
-            echo "</div>";
-        
-        ?>
-    <?php }else{ ?>
-    <div class="container-btn col-3">
-      <a href="?view=login" class="btn-login">
-        <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i>Login</button>
-      </a>
-      <a href="?view=register" class="btn-register"><button type="button" class="btn btn-primary regis-btn"><i
-            class="bi bi-person-plus-fill"></i>Register</button>
-      </a>
-    </div>
+                echo "<div class='col-3' style='display:flex; align-items:right;'>";
+                echo "<p style='font-family: Oswald, sans-serif; font-size:3rem;  padding:2rem;'>" . $_SESSION['userName'] . "</p>";
+                echo "<img style='margin-top:2rem; border-radius:50%;' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
+                echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
+                echo "</div>";
+          }else{ ?>
+      <div class="container-btn col-3">
+        <a href="?view=login" class="btn-login">
+          <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i>Login</button>
+        </a>
+        <a href="?view=register" class="btn-register"><button type="button" class="btn btn-primary regis-btn"><i
+              class="bi bi-person-plus-fill"></i>Register</button>
+        </a>
+      </div>
     <?php } ?>
   </div>
 

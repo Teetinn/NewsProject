@@ -1,5 +1,10 @@
 <?php
   session_start();
+  INCLUDE 'include/db_connect2.php';
+
+    $idnews = $_GET['id'];
+    $resultberita = $db->query("SELECT * FROM `berita` WHERE `berita`.`id` = '$idnews'");
+    $berita = $resultberita->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -37,15 +42,24 @@
             $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
             $mhs = $result->fetch_assoc();
             $fp = $mhs['foto'];
-
-            echo "<div class='col-3' style='display:flex;'>";
+            if($mhs['type'] == "user"){
+                  // echo "<script>alert('welcome user');</script>";
+                  echo "<div class='col-3' style='display:flex;'>";
+                  echo "<div class='container-menu'>";
+                } else{
+                    // if(isset($_POST["userView"])){
+                    //     echo "<script>alert('dkjsfjlf');</script>";
+                    // }else{
+                    echo "<div class='col-3' style='display:flex;'>";
+                    echo "<a class='btn btn-danger crud-btn' href='?view=admin'>CRUD Berita</a>";
+                    // echo "<script>document.location.href='?view=admin';</script>";
+                }
                 echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
                 echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
-                echo "<img class='profile-picture' src=\"profileimg/{$fp}\" width = '50' height = '50'>";
-            echo "</div>";
-        
-        ?>
-    <?php }else{ ?>
+                echo "<img class='profile-picture' src=\"profileimg/{$fp}\">";
+                echo "</div>";
+                echo "</div>";
+          }else{ ?>
       <div class="container-btn col-3">
         <a href="?view=login" class="btn-login">
           <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i>Login</button>
@@ -100,11 +114,6 @@
     // $judul = $_POST['judul'];
 
   ?>
-
-   <script>
-      str.replace("\n", "<br />","g");
-      
-    </script>
 
   <div class="row">
     <div class="col-1"></div>

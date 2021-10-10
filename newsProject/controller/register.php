@@ -35,6 +35,14 @@
         if(empty($_POST['namaDepan']) || empty($_POST['namaBelakang']) || empty($_POST['userName']) || empty($_POST['tgl_lahir']) || empty($_POST['jenisKelamin']) || empty($_POST['password']) || empty($_POST['konfirmasiPassword'])){
             echo '<script>alert("All fields are required")</script>';
         }else{
+        $uname = $_POST['userName'];
+        if((strlen($uname)) > 15){
+            echo "<script>alert('Username is too long!');
+                    document.location.href='?view=register';
+                </script>";
+                die;
+        }   
+            
         if(strcmp($_POST['password'], $_POST['konfirmasiPassword']) != 0) {
             echo "<script>
                 alert('Password salah');

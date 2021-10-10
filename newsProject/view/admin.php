@@ -100,6 +100,15 @@
 
             <tbody>
                  <?php
+                 $query = "SELECT * FROM berita";
+                  $result = $db->query($query);
+
+                  $berita = [];
+                  $news = [];
+
+                  foreach($result as $berita) {
+                      $news[] = new berita($berita['id'], $berita['judul'], $berita['kategori'], $berita['penulis'], $berita['konten'], $berita['tanggal'], $berita['gambar']);
+                  }
                  foreach($news as $berita){
                     echo "<tr>";
                     echo "<td class='judul-admin'>" . $berita->judul . "</td>";

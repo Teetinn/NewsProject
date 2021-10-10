@@ -73,7 +73,7 @@ include "include/db_connection.php";
             </div>
             <div class="mb-3">
                 <label for="konten" class="form-label">Konten Berita</label>
-                <textarea type="text" class="form-control" id="konten" name="konten" value="<?="{$berita['konten']}";?>" placeholder="Konten Berita" cols="40" rows="5"></textarea>
+                <textarea type="text" class="form-control" id="konten" name="konten" placeholder="Konten Berita" cols="40" rows="5"><?="{$berita['konten']}";?></textarea>
             </div>
                 <div class="mb-3">
                 <label for="tanggal" class="form-label">Tanggal Publikasi</label>

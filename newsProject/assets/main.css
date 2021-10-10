@@ -16,7 +16,7 @@ body {
 
 .ctr-container-header {
   box-sizing: border-box;
-  background-color: #212529;
+  background-color: #181b1d;
 }
 
 .container-header {
@@ -27,6 +27,7 @@ body {
 
 .row {
   margin-right: 0;
+  --bs-gutter-x: 0rem;
 }
 
 .container-logo {
@@ -81,6 +82,17 @@ body {
   font-size: 16px;
 }
 
+/* .crud-btn {
+  width: 35%;
+} */
+
+.container-menu {
+  width: 100%;
+  display: flex;
+  margin-left: 10rem;
+  margin-right: -10rem;
+}
+
 .profile-picture {
   padding: 2rem;
   border-radius: 100%;
@@ -96,14 +108,14 @@ body {
   font-size: 2.5rem;
 }
 
-.logout-btn {
+.logout-btn,
+.crud-btn {
   float: right;
-  width: 35%;
+  width: 30%;
   height: 50%;
   border: none;
   border-radius: 5px;
-  margin: 2.2rem;
-  margin-left: 8rem;
+  margin: 22px 10px 0px 0px;
   display: inline;
   font-family: "Oswald", sans-serif;
   font-size: 16px;
@@ -258,7 +270,8 @@ input[type="submit"] {
 }
 
 .view-main-news {
-  font-size: 1.5rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
   background-color: rgb(87, 90, 104);
   border: none;
   width: 100%;
@@ -392,6 +405,7 @@ option {
 
 .user-view-btn {
   width: 100%;
+  border-radius: 0;
 }
 
 @media only screen and (max-width: 1250px) {

@@ -44,17 +44,16 @@
                 $mhs = $result->fetch_assoc();
                 $fp = $mhs['foto'];
                 if($mhs['type'] == "user"){
-                  echo "<script>alert('welcome user')alert</script>";
+                  echo "<div class='col-3' style='display:flex;'>";
+                  echo "<div class='container-menu'>";
                 } else{
-
-                    echo "<script>document.location.href='?view=admin';</script>";
+                    echo "<div class='col-3' style='display:flex;'>";
+                    echo "<a class='btn btn-danger crud-btn' href='?view=admin'>CRUD Berita</a>";
                 }
-
-                echo "<div class='col-3' style='display:flex;'>";
                 echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
                 echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
                 echo "<img class='profile-picture' src=\"profileimg/{$fp}\">";
-                
+                echo "</div>";
                 echo "</div>";
           }else{ ?>
     <div class="container-btn col-3">
@@ -65,6 +64,7 @@
             class="bi bi-person-plus-fill"></i> Register</button>
       </a>
     </div>
+
     <?php } ?>
   </div>
 
@@ -120,87 +120,75 @@
   </nav>
   <div style="height:20px"></div>
 
-  <?php
-    include "include/db_connection2.php";
+  
+  <div class='row'>
+     <!-- <div class='col-1'></div> -->
+                
+   <?php
+    include 'include/db_connection2.php';
+      $query = "SELECT * FROM berita LIMIT 6";
 
-    $sql = "SELECT * FROM berita WHERE id = '001'";
-    $result = $db->query($sql);
-    
-    $row = $result->fetch_assoc();
+        $result = $db->query($query);
+            
+        $berita = [];
+        $news = [];
 
-    // $bid = $_POST['id'];
-    // $judul = $_POST['judul'];
+        foreach($result as $berita) {
+            $news[] = new berita($berita['id'], $berita['judul'], $berita['kategori'], $berita['penulis'], $berita['konten'], $berita['tanggal'], $berita['gambar']);
+        }
 
-  ?>
+        
+          echo "
+                  <div class='col-lg-9 col-md-12' style='margin-left:5rem;'>
+                    <div class='card col-lg-11 mb-5'>
+                      <img src=\"{$news[5]->gambar}\" class='card-img-top news-image' alt='...'>
+                      <div class='card-body main-container'>
+          ";
 
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-lg-7 col-md-12">
-      <div class="card col-lg-11 mb-5">
-        <img src="assets/bapak.jpg" class="card-img-top news-image" alt="...">
-        <div class="card-body main-container">
-          <?php 
-          echo "<p class='card-text main-card judul-berita'>" . $row['judul'] . "</p>";
-          // <p class="card-text main-card">Some quick example text to build on the card title and make up the bulk of the
-          //   card's content.</p>
-          
-          echo "<p class='card-text main-card kategori-berita'>" . $row['kategori'] . "<i class='bi bi-square-fill'></i>" . $row['tanggal'] ."</p>";
-        ?>
-          <div class="view-main-container">
-            <a href="?view=news" class="btn btn-primary view-main-news">Lihat Berita</a>
+          echo "<p class='card-text main-card judul-berita'>" . $news[5]->judul . "</p>";
+          echo "<p class='card-text main-card kategori-berita'>" . $news[5]->kategori . "<i class='bi bi-square-fill'></i>" . $news[0]->tanggal ."</p>";
+
+          echo "      
+              <div class='view-main-container'>
+                <a href\="?view=news&id={berita->id}\" class='btn btn-primary view-main-news'>Lihat Berita</a>
+                href=\"?view=editberita&id={$berita->id}\"
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+          </div>";
 
-      <div class="card col-lg-11 mb-5">
-        <img src="assets/bapak.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-text main-card">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
+          
+    
+      
+          echo " <div class='col-lg-2 col-md-12 color-white'>
+             ";
+      
+      
+      for($i = 0; $i < 3; $i++){
 
-        </div>
-      </div>
+             echo "
+              <div class='row'>
+              <div class='card text-end col-lg-11 side-card'>
+                <div class='card-body'>
+                  <img src=\"{$news[$i]->gambar}\" class='card-img-top' alt='...'>
+                  <h5 class='card-title'>{$news[$i]->judul}</h5>
+                  <a href='#' class='btn btn-primary view-news'>Lihat Berita</a>
+                </div>
+              </div>
+              <br>
+              </div>";
+          }
+          echo "</div>";
+    
+//  <p class='card-text'>With supporting text below as a natural lead-in to additional content.</p>
+      
+      
+      // mysqli_free_result($result);
+      // mysqli_close($db);
+        
+      ?>
 
-      <div class="card col-lg-11 mb-5">
-        <img src="assets/bapak.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-text main-card">Some quick example text to build on the card title and make up the bulk of the
-            card's content.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-12 color-white">
-      <div class="card text-end col-lg-11 side-card">
-        <div class="card-body">
-          <img src="assets/bapak.jpg" class="card-img-top" alt="...">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary view-news">Lihat Berita</a>
-        </div>
-      </div>
-      <br>
-      <div class="card text-end col-lg-11 side-card">
-        <div class="card-body">
-          <img src="assets/bapak.jpg" class="card-img-top" alt="...">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary view-news">Lihat Berita</a>
-        </div>
-      </div>
-      <br>
-      <div class="card text-end col-lg-11 side-card">
-        <div class="card-body">
-          <img src="assets/bapak.jpg" class="card-img-top" alt="...">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary view-news">Lihat Berita</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-1"></div>
-  </div>
-  </div>
-</body>
+   
 
 <!-- Footer -->
 <footer class="bg-dark text-center text-white">
@@ -268,7 +256,7 @@
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size:1.5rem;">
+  <div class="text-center p-3" style="background-color:#181b1d; color: white; font-size:1.5rem;">
     © 2021 Copyright
     <p style="font-size:1rem; padding-top:0.5rem;">Pem-Web News</p>
   </div>
@@ -276,5 +264,5 @@
 </footer>
 <!-- Footer -->
 
-
+        </body>
 </html>

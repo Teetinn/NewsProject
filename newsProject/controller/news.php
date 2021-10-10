@@ -17,6 +17,8 @@
        
     //  }
 
+
+//JANGAN ADA YG DI UBAH LAGI DARI LOGIKA INI!!!
 if(isset($_POST['submitcomment'])) {
     if($_SESSION['id']) {
       $user = $db->query("SELECT * FROM `user` WHERE id = '$userId'");

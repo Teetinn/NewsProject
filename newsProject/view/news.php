@@ -125,7 +125,7 @@
             <div class="comment-container" id="comment-form">
               <h1 class="header-comment">Komentar</h1>
               <form class="myForm" method="post">
-                 <label for="Comment" class="form-label">Comments</label>
+                 <label for="Comment" class="form-label">Comments News</label>
                 <textarea name="Comment" class="form-control" id="Comment" placeholder="Comment" cols="30"
                      rows="5"></textarea>
                       <input type="Submit" name="submitcomment" value="submit" class="btn btn-primary mt-3">
@@ -141,6 +141,7 @@
                 //   <button type='submit' name='submitcomment' value='submit' class='btn btn-primary mt-3'>Kirim</button>
                 // </form>";
 
+                //JANGAN ADA YG DI UBAH LAGI DARI LOGIKA INI!!!
                 $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$idnews'");
                 
                 foreach($resultberita as $comment) {
@@ -152,12 +153,13 @@
                 $hasilUsername = $db->query("SELECT * FROM user WHERE userName = '$username'");
                 $comment['profile'] = $hasilUsername->fetch_assoc()['foto'];
 
+                //Di style lagi blh
                 echo "
                     <div class=\"col-xl-11 col-lg-10 col-md-11 col-sm-10 col-10\">
                     <img src=\"profileimg/{$comment['profile']}\" alt=\"user-profile\" class=\"user-image\" width='50' height='50'>
                     </div>
                       <h4 class=\'commenter-name\'>{$comment['userName']}</h4>
-                      <h5 class=\'comment-date\'>{$comment['tanggalKomen']}</h5>";
+                      <h6 class=\'comment-date\'>{$comment['tanggalKomen']}</h6>";
                       echo
                       "<h4 class=\"comment-content\">{$comment['isi']}</h4>
                       </div>";

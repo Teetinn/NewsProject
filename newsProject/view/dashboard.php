@@ -126,7 +126,7 @@
                 
    <?php
     include 'include/db_connection2.php';
-      $query = "SELECT * FROM berita LIMIT 6";
+      $query = "SELECT * FROM berita";
 
         $result = $db->query($query);
             
@@ -137,54 +137,44 @@
             $news[] = new berita($berita['id'], $berita['judul'], $berita['kategori'], $berita['penulis'], $berita['konten'], $berita['tanggal'], $berita['gambar']);
         }
 
+        $randomID = rand(0, 10);
         
           echo "
-                  <div class='col-lg-9 col-md-12' style='margin-left:5rem;'>
-                    <div class='card col-lg-11 mb-5'>
-                      <img src=\"{$news[5]->gambar}\" class='card-img-top news-image' alt='...'>
-                      <div class='card-body main-container'>
-          ";
+              <div class='col-lg-9 col-md-12' style='margin-left:5rem;'>
+                <div class='card col-lg-11 mb-5'>
+                  <img src=\"{$news[$randomID]->gambar}\" class='card-img-top news-image' alt='...'>
+                  <div class='card-body main-container'>
+              ";
 
-          echo "<p class='card-text main-card judul-berita'>" . $news[5]->judul . "</p>";
-          echo "<p class='card-text main-card kategori-berita'>" . $news[5]->kategori . "<i class='bi bi-square-fill'></i>" . $news[0]->tanggal ."</p>";
+          echo "<p class='card-text main-card judul-berita'>" . $news[$randomID]->judul . "</p>";
+          echo "<p class='card-text main-card kategori-berita'>" . $news[$randomID]->kategori . "<i class='bi bi-square-fill'></i>" . $news[$randomID]->tanggal ."</p>";
 
           echo "      
               <div class='view-main-container'>
-                <a href\="?view=news&id={berita->id}\" class='btn btn-primary view-main-news'>Lihat Berita</a>
-                href=\"?view=editberita&id={$berita->id}\"
+                <a href=\"?view=news&id={$news[$randomID]->id}\" class='btn btn-primary view-main-news'>Lihat Berita</a>
               </div>
             </div>
           </div>
           </div>";
-
-          
-    
-      
           echo " <div class='col-lg-2 col-md-12 color-white'>
              ";
       
-      
+    
       for($i = 0; $i < 3; $i++){
-
+          $randomID = rand(0, 12);
              echo "
               <div class='row'>
               <div class='card text-end col-lg-11 side-card'>
                 <div class='card-body'>
-                  <img src=\"{$news[$i]->gambar}\" class='card-img-top' alt='...'>
-                  <h5 class='card-title'>{$news[$i]->judul}</h5>
-                  <a href='#' class='btn btn-primary view-news'>Lihat Berita</a>
+                  <img src=\"{$news[$randomID]->gambar}\" class='card-img-top' alt='...'>
+                  <h5 class='card-title'>{$news[$randomID]->judul}</h5>
+                  <a href=\"?view=news&id={$news[$randomID]->id}\" class='btn btn-primary view-news'>Lihat Berita</a>
                 </div>
               </div>
               <br>
               </div>";
           }
-          echo "</div>";
-    
-//  <p class='card-text'>With supporting text below as a natural lead-in to additional content.</p>
-      
-      
-      // mysqli_free_result($result);
-      // mysqli_close($db);
+          echo "</div></div>";
         
       ?>
 

@@ -1,6 +1,6 @@
 <?php
   session_start();
-  INCLUDE 'include/db_connect2.php';
+  INCLUDE 'include/db_connection2.php';
 
     $idnews = $_GET['id'];
     $resultberita = $db->query("SELECT * FROM `berita` WHERE `berita`.`id` = '$idnews'");
@@ -102,37 +102,22 @@
 
   <div style="height:20px"></div>
 
-  <?php
-    include "include/db_connection2.php";
-
-    $sql = "SELECT * FROM berita WHERE id = '001'";
-    $result = $db->query($sql);
-    
-    $row = $result->fetch_assoc();
-
-    // $bid = $_POST['id'];
-    // $judul = $_POST['judul'];
-
-  ?>
 
   <div class="row">
     <div class="col-1"></div>
     <div class="col-7" >
       <div class="card col-lg-11 mb-5">
         
-     
+
         <div class="card-body main-container">
         <?php  
-          echo "<p class='card-text main-card judul-berita'>" . $row['judul'] . "</p>";
-          echo "<p class='card-text main-card kategori-berita'>" . $row['kategori'] . "<i class='bi bi-square-fill'></i>" . $row['tanggal'] ."</p>";
-        ?>
-          <img src="assets/bapak.jpg" class="card-img-top news-image" alt="...">
-        <?php
-         //taro echo foto dsini
+          echo "<p class='card-text main-card judul-berita'>" . $berita['judul'] . "</p>";
+          echo "<p class='card-text main-card kategori-berita'>" . $berita['kategori'] . "<i class='bi bi-square-fill'></i>" . $berita['tanggal'] ."</p>";
+          echo "<img src=\"{$berita['gambar']}\" class='card-img-top news-image' alt='...'>";   
+          echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
 
-          // echo "<p class='card-text main-card judul-berita'>" . $row['judul'] . "</p>";
-        
-          echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $row['konten'] . "</p>";
+
+          
         ?>
 
         
@@ -152,38 +137,29 @@
       </div>
     </div>
 
+    <?php
+      echo " <div class='col-lg-3 col-md-12 color-white'>
+             ";
       
-    <div class="col-3 color-white">
-      <div class="card text-end col-lg-11 side-card">
-        <div class="card-body">
-          <img src="assets/bapak.jpg" class="card-img-top" alt="...">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary view-news">Lihat Berita</a>
-        </div>
-      </div>
-      <br>
-      <div class="card text-end col-lg-11 side-card">
-        <div class="card-body">
-          <img src="assets/bapak.jpg" class="card-img-top" alt="...">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary view-news">Lihat Berita</a>
-        </div>
-      </div>
-      <br>
-      <div class="card text-end col-lg-11 side-card">
-        <div class="card-body">
-          <img src="assets/bapak.jpg" class="card-img-top" alt="...">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary view-news">Lihat Berita</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-1"></div>
-  </div>
-  </div>
+             
+          for($i = 0; $i < 3; $i++){
+
+             echo "
+              <div class='row'>
+              <div class='card text-end col-lg-11 side-card'>
+                <div class='card-body'>
+                  <img src=\"{$news[$i]->gambar}\" class='card-img-top' alt='...'>
+                  <h5 class='card-title'>{$news[$i]->judul}</h5>
+                  <a href='#' class='btn btn-primary view-news'>Lihat Berita</a>
+                </div>
+              </div>
+              <br>
+              </div>";
+          }
+          echo "</div>";
+      ?>
+
+    
 
 
   <footer class="bg-dark text-center text-white">
@@ -239,7 +215,7 @@
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); font-size:1.5rem;">
+  <div class="text-center p-3" style="background-color:#181b1d; color: white; font-size:1.5rem;">
     © 2021 Copyright 
     <p style="font-size:1rem; padding-top:0.5rem;">Pem-Web News</p>
   </div>

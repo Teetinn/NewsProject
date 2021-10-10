@@ -13,6 +13,7 @@
     // <img src='{$berita['gambar']}'>
     //       </div>";
     // echo $berita['konten'];
+    // banu ganteng
     }
 ?>
 

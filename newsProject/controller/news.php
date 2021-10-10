@@ -10,12 +10,12 @@
     }
         
     
-    $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$newsID'");
+    // $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$newsID'");
      
-     foreach($result as $comment) {
-       $komentar[] = $comment;
+    //  foreach($result as $comment) {
+    //    $komentar[] = $comment;
        
-     }
+    //  }
 
 if(isset($_POST['submitcomment'])) {
     if($_SESSION['id']) {

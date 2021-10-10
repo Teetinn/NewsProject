@@ -121,7 +121,7 @@
                 <input type='hidden' name='date' value=''>
                 <textarea class='space-comment' rows='4' cols='50' name='message'>
                 </textarea>
-                <button type='submit' name='commentSubmit'>Kirim</button>
+                <button type='submit' name='commentSubmit' class='commentSubmit'>Kirim</button>
               </form>";
             ?>
           </div>

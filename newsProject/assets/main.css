@@ -488,6 +488,12 @@ option {
   display: contents;
 }
 
+.commentSubmit {
+  width: 20%;
+  margin: 1rem 4.5rem 3rem 3rem;
+  padding: 0.75rem;
+}
+
 @media only screen and (max-width: 1050px) {
   .navbar-nav {
     width: 100%;

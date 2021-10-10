@@ -124,39 +124,43 @@
           
             <div class="comment-container" id="comment-form">
               <h1 class="header-comment">Komentar</h1>
+              <form class="myForm" method="post">
+                 <label for="Comment" class="form-label">Comments</label>
+                <textarea name="Comment" class="form-control" id="Comment" placeholder="Comment" cols="30"
+                     rows="5"></textarea>
+                      <input type="Submit" name="submitcomment" value="submit" class="btn btn-primary mt-3">
+                    </div>
+              </form>
               <?php
-                echo "<form method='POST' action=''>
-                  <input type='hidden' name='uid' value='Anonymous'>
-                  <input type='hidden' name='date' value=''>
-                  <textarea class='space-comment' id='Comment' rows='4' cols='50' name='Comment'>
-                  </textarea>
+                // echo "<form method='POST' action=''>
+                //   <input type='hidden' name='uid' value='Anonymous'>
+                //   <input type='hidden' name='date' value=''>
+                //   <textarea class='space-comment' id='Comment' rows='4' cols='50' name='Comment'>
+                //   </textarea>
 
-                  <button type='submit' name='submitcomment' value='submit' class='btn btn-primary mt-3'>Kirim</button>
-                </form>";
+                //   <button type='submit' name='submitcomment' value='submit' class='btn btn-primary mt-3'>Kirim</button>
+                // </form>";
 
                 $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$idnews'");
                 
                 foreach($resultberita as $comment) {
                 // $idKomen = uniqid('');
                 $idKomen = $comment['IDkomen'];
-                var_dump($idKomen);
-                die;
 
                 $username = $comment['userName'];
-                var_dump($username);
-                die;
-                
+
                 $hasilUsername = $db->query("SELECT * FROM user WHERE userName = '$username'");
-                $comment['profile'] = $hasilUsername->fetch_assoc()['gambar'];
+                $comment['profile'] = $hasilUsername->fetch_assoc()['foto'];
 
                 echo "
                     <div class=\"col-xl-11 col-lg-10 col-md-11 col-sm-10 col-10\">
-                    <img src=\"profileimg/{$comment['profile']}\" alt=\"user-profile\" class=\"user-image\" width='100' height='100'>
+                    <img src=\"profileimg/{$comment['profile']}\" alt=\"user-profile\" class=\"user-image\" width='50' height='50'>
                     </div>
-                      <h4 class=\"commenter-name\">{$comment['userName']}</h4><span class=\"comment-date\">{$comment['tanggalKomen']}</span>
-                      <p class=\"comment-content\">{$comment['isi']}</p>
-                      </a>
-                    </div>";
+                      <h4 class=\'commenter-name\'>{$comment['userName']}</h4>
+                      <h5 class=\'comment-date\'>{$comment['tanggalKomen']}</h5>";
+                      echo
+                      "<h4 class=\"comment-content\">{$comment['isi']}</h4>
+                      </div>";
                 }
               ?>
             </div>

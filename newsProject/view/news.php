@@ -1,10 +1,19 @@
 <?php
   session_start();
   INCLUDE 'include/db_connection2.php';
-
+  if(isset($_GET['id'])){
     $idnews = $_GET['id'];
-    $resultberita = $db->query("SELECT * FROM `berita` WHERE `berita`.`id` = '$idnews'");
+    $query = "SELECT id, judul, kategori, penulis, konten, DATE_FORMAT(tanggal, '%W, %D %M %Y') 'tanggal', gambar FROM berita WHERE id ='$idnews'";
+    $resultberita = $db->query($query);
+
     $berita = $resultberita->fetch_assoc();
+    // echo $berita['judul'];
+    // echo $berita['tanggal'];
+    // echo "<div>
+    // <img src='{$berita['gambar']}'>
+    //       </div>";
+    // echo $berita['konten'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -100,32 +109,54 @@
 
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-7" >
-      <div class="card col-lg-11 mb-5">
-        
+      <div class="col-7" >
+        <div class="card col-lg-11 mb-5">
+          
 
-        <div class="card-body main-container">
-        <?php  
-          echo "<p class='card-text main-card judul-berita'>" . $berita['judul'] . "</p>";
-          echo "<p class='card-text main-card kategori-berita'>" . $berita['kategori'] . "<i class='bi bi-square-fill'></i>" . $berita['tanggal'] ."</p>";
-          echo "<img src=\"{$berita['gambar']}\" class='card-img-top news-image' alt='...'>";   
-          echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
-        ?>
+          <div class="card-body main-container">
+          <?php  
+            echo "<p class='card-text main-card judul-berita'>" . $berita['judul'] . "</p>";
+            echo "<p class='card-text main-card kategori-berita'>" . $berita['kategori'] . "<i class='bi bi-square-fill'></i>" . $berita['tanggal'] ."</p>";
+            echo "<img src=\"{$berita['gambar']}\" class='card-img-top news-image' alt='...'>";   
+            echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
+          ?>
 
-        
-          <div class="comment-container" id="comment-form">
-            <h1 class="header-comment">Komentar</h1>
-            <?php
-              echo "<form method='POST' action=''>
-                <input type='hidden' name='uid' value='Anonymous'>
-                <input type='hidden' name='date' value=''>
-                <textarea class='space-comment' rows='4' cols='50' name='message'>
-                </textarea>
-                <button type='submit' name='commentSubmit'>Kirim</button>
-              </form>";
-            ?>
+          
+            <div class="comment-container" id="comment-form">
+              <h1 class="header-comment">Komentar</h1>
+              <?php
+                echo "<form method='POST' action=''>
+                  <input type='hidden' name='uid' value='Anonymous'>
+                  <input type='hidden' name='date' value=''>
+                  <textarea class='space-comment' id='Comment' rows='4' cols='50' name='Comment'>
+                  </textarea>
+
+                  <button type='submit' name='submitcomment' value='submit' class='btn btn-primary mt-3'>Kirim</button>
+                </form>";
+
+                $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$idnews'");
+                
+                foreach($resultberita as $comment) {
+                $idKomen = uniqid('');
+                // $idKomen = $comment['IDkomen'];
+                $username = $comment['userName'];
+                
+                $hasiltUsername = $db->query("SELECT * FROM user WHERE userName = '$username'");
+                $comment['profile'] = $hasilUsername->fetch_assoc()['gambar'];
+
+                echo "
+                    <div class=\"col-xl-11 col-lg-10 col-md-11 col-sm-10 col-10\">
+                    <img src=\"profileimg/{$comment['profile']}\" alt=\"user-profile\" class=\"user-image\" width='100' height='100'>
+                    </div>
+                      <h4 class=\"commenter-name\">{$comment['userName']}</h4><span class=\"comment-date\">{$comment['tanggalKomen']}</span>
+                      <p class=\"comment-content\">{$comment['isi']}</p>
+                      <a href=\"?view=detailberita&id={$idnews}&tujuan={$idKomen}\">
+                      </a>
+                    </div>";
+                }
+              ?>
+            </div>
           </div>
-        </div>
       </div>
     </div>
 

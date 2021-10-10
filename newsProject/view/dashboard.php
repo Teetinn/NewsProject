@@ -159,7 +159,7 @@
             $ctr++;
         }
 
-        $randomID = rand(0, $ctr);
+        $randomID = mt_rand(0, $ctr-1);
         
           echo "
               <div class='col-lg-9 col-md-12'>
@@ -183,14 +183,15 @@
       
     
       for($i = 0; $i < 3; $i++){
-          $randomID = mt_rand(0, $ctr);
+          // $randomID = mt_rand(0, $ctr-1);
+          // var_dump($randomID);
              echo "
               <div class='row'>
               <div class='card text-end col-lg-11 side-card'>
                 <div class='card-body'>
-                  <img src=\"{$news[$randomID]->gambar}\" class='card-img-top' alt='...'>
-                  <h5 class='card-title'>{$news[$randomID]->judul}</h5>
-                  <a href=\"?view=news&id={$news[$randomID]->id}\" class='btn btn-primary view-news'>Lihat Berita</a>
+                  <img src=\"{$news[$i]->gambar}\" class='card-img-top' alt='...'>
+                  <h5 class='card-title'>{$news[$i]->judul}</h5>
+                  <a href=\"?view=news&id={$news[$i]->id}\" class='btn btn-primary view-news'>Lihat Berita</a>
                 </div>
               </div>
               <br>

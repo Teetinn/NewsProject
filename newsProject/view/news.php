@@ -206,6 +206,7 @@
  
       for($i = 0; $i < 5; $i++){
           $randomID = mt_rand(0, 12);
+          var_dump($randomID);
 
              echo "
               <div class='row'>

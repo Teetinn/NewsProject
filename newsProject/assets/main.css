@@ -103,7 +103,7 @@ body {
 .login-username {
   font-family: Oswald, sans-serif;
   font-size: 3rem;
-  padding: 2.5rem 0rem 0rem 0rem;
+  padding: 2rem 0rem 0rem 0rem;
   color: white;
   font-size: 2.5rem;
 }
@@ -112,7 +112,7 @@ body {
 .crud-btn {
   float: right;
   width: 30%;
-  height: 30%;
+  height: 38%;
   border: none;
   border-radius: 5px;
   margin: 22px 10px 0px 0px;

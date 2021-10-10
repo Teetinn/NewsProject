@@ -109,6 +109,7 @@
 
   <div class="row">
     <div class="col-1"></div>
+<<<<<<< HEAD
       <div class="col-7" >
         <div class="card col-lg-11 mb-5">
           
@@ -156,6 +157,32 @@
                 }
               ?>
             </div>
+=======
+    <div class="col-7" >
+      <div class="card col-lg-11 mb-5">
+        
+
+        <div class="card-body main-container">
+        <?php  
+          echo "<p class='card-text main-card judul-berita'>" . $berita['judul'] . "</p>";
+          echo "<p class='card-text main-card kategori-berita'>" . $berita['kategori'] . "<i class='bi bi-square-fill'></i>" . $berita['tanggal'] ."</p>";
+          echo "<img src=\"{$berita['gambar']}\" class='card-img-top news-image' alt='...'>";   
+          echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
+        ?>
+
+        
+          <div class="comment-container" id="comment-form">
+            <h1 class="header-comment">Komentar</h1>
+            <?php
+              echo "<form method='POST' action=''>
+                <input type='hidden' name='uid' value='Anonymous'>
+                <input type='hidden' name='date' value=''>
+                <textarea class='space-comment' rows='4' cols='50' name='message'>
+                </textarea>
+                <button type='submit' name='commentSubmit' class='commentSubmit'>Kirim</button>
+              </form>";
+            ?>
+>>>>>>> 3837b3fb446345fc0bcfee967a83fe7b50fd06de
           </div>
       </div>
     </div>

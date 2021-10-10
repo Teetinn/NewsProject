@@ -79,7 +79,7 @@ body {
   margin: 22px;
   display: inline;
   font-family: "Oswald", sans-serif;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 /* .crud-btn {
@@ -94,39 +94,31 @@ body {
 }
 
 .profile-picture {
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 100%;
-  width: 10rem;
-  height: auto;
+  width: 6rem;
+  height: 6rem;
 }
 
 .login-username {
   font-family: Oswald, sans-serif;
   font-size: 3rem;
-  padding: 2.5rem 0rem 1.5rem 0rem;
+  padding: 2rem 0rem 0rem 0rem;
   color: white;
   font-size: 2.5rem;
-}
-
-.user-pp-container {
-  display: inline-flex;
-}
-
-.logout-container {
-  display: flex;
 }
 
 .logout-btn,
 .crud-btn {
   float: right;
   width: 30%;
-  height: 50%;
+  height: 38%;
   border: none;
   border-radius: 5px;
   margin: 22px 10px 0px 0px;
   display: inline;
   font-family: "Oswald", sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   padding-top: 1rem;
 }
 
@@ -297,18 +289,6 @@ input[type="submit"] {
   width: 40%;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.news-sidebar {
-  display: flex;
-  flex-flow: column;
-  vertical-align: center;
-}
-
 .news-image {
   width: 100%;
 }
@@ -457,39 +437,6 @@ option {
     display: block;
   }
 
-  .user-pp-container {
-    width: 100%;
-    display: flex;
-    padding-top: 2rem;
-    padding-left: 2.5rem;
-    margin-left: 10rem;
-  }
-
-  .profile-picture {
-    margin: 0;
-    border-radius: 100%;
-    width: 60px;
-    padding: 5px;
-    height: 60px;
-  }
-
-  .login-username {
-    font-size: 2rem;
-  }
-
-  .logout-container {
-    display: block;
-  }
-
-  .logout-btn,
-  .crud-btn {
-    width: 80%;
-    height: 15%;
-    padding: 2px 3px 6px 3px;
-    margin-bottom: 0px;
-    margin-top: 10px;
-  }
-
   .login-btn,
   .regis-btn,
   input[type="submit"] {
@@ -508,14 +455,17 @@ option {
   display: contents;
 }
 
+.commentSubmit {
+  width: 20%;
+  margin: 1rem 4.5rem 3rem 3rem;
+  padding: 0.75rem;
+}
+
 @media only screen and (max-width: 1050px) {
   .navbar-nav {
     width: 100%;
   }
 
-  .user-pp-container {
-    margin-left: 5rem;
-  }
   .view-news {
     font-size: 1.4rem;
   }
@@ -525,15 +475,6 @@ option {
   .container-btn {
     display: block;
   }
-
-  .login-btn,
-  .regis-btn {
-    width: 100%;
-    height: 30%;
-    margin: 20px;
-    display: block;
-  }
-
   .regis-btn {
     margin-top: -15px;
   }
@@ -561,10 +502,6 @@ option {
     line-height: 4.5rem;
   }
 
-  .user-pp-container {
-    margin-left: 0rem;
-  }
-
   .container-header {
     padding: 1.5rem;
   }
@@ -579,12 +516,57 @@ option {
 }
 
 @media only screen and (max-width: 920px) {
+  .container-btn {
+    display: block;
+  }
   .judul-berita {
     font-size: 1.6rem;
   }
 
   .view-news {
     font-size: 1.1rem;
+  }
+  .card-title {
+    font-size: 1.6rem;
+    text-align: left;
+  }
+  .view-main-news {
+    font-family: "Oswald", sans-serif;
+    font-size: 1rem;
+    background-color: rgb(87, 90, 104);
+    border: none;
+    width: 100%;
+  }
+  .login-username {
+    padding: 0;
+  }
+
+  .login-btn,
+  .regis-btn {
+    width: 100%;
+    height: 30%;
+    margin: 20px;
+    display: block;
+    font-size: 20px;
+  }
+
+  .logout-btn,
+  .crud-btn {
+    width: 80%;
+    height: 15%;
+    margin: 10px;
+    display: block;
+  }
+
+  .user-pp-container {
+    text-align: center;
+  }
+
+  .profile-picture {
+    padding: 0;
+    border-radius: 100%;
+    width: 4rem;
+    height: 4rem;
   }
 }
 
@@ -608,46 +590,9 @@ option {
   .toggle-hide {
     display: none;
   }
-
-  .container-btn {
-    display: block;
-  }
-
-  .user-pp-container {
-    width: 100%;
-    display: flex;
-    padding-top: 2rem;
-    padding-left: 2.5rem;
-  }
-
-  .profile-picture {
-    margin: 0;
-    border-radius: 100%;
-    width: 50px;
-    padding: 5px;
-    height: 50px;
-  }
-
-  .login-username {
-    text-align: center;
-    font-size: 1.5rem;
-  }
-
-  .logout-container {
-    display: block;
-  }
-
-  .logout-btn,
-  .crud-btn {
-    width: 80%;
-    height: 15%;
-    padding: 2px 3px 6px 3px;
-    margin-bottom: 0px;
-    margin-top: 10px;
-  }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 465px) {
   .header-berita {
     font-size: 3.8rem;
   }

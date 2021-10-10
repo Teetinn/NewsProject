@@ -127,89 +127,98 @@
         
     //     $ctr = 0;
 
-    //     foreach($result as $berita) {
-    //         $news[] = new berita($berita['id'], $berita['judul'], $berita['kategori'], $berita['penulis'], $berita['konten'], $berita['tanggal'], $berita['gambar']);
-    //         $ctr++;
-    //     }
+  //       foreach($result as $berita) {
+  //           $news[] = new berita($berita['id'], $berita['judul'], $berita['kategori'], $berita['penulis'], $berita['konten'], $berita['tanggal'], $berita['gambar']);
+  //           $ctr++;
+  //       }
+  // $query = "SELECT * FROM berita WHERE kategori = '$kategori'";
+  //                 $result = $db->query($query);
 
-        $randomID = rand(0, 3);
+  //                 $outputKTR = [];
+  //                 $hasil = [];
+
+                //   foreach($hasil as $outputKTR){
+                //     echo "<p>". $outputKTR->judul . " </p>";
+                //     echo "<img src='{$outputKTR['gambar']}'>;";
+
+                  //     $hasil[] = new outputKTR($outputKTR['id'], $outputKTR['judul'], $outputKTR['kategori'], $outputKTR['penulis'], $outputKTR['konten'], $outputKTR['tanggal'], $outputKTR['gambar']);
+                //    }
+
+
+                //foreach($hasil as $outputKTR){
+        // $randomID = rand(0, 3);
         
-          echo "
-              <div class='col-lg-9 col-md-12' style='margin-left:5rem;'>
-                <div class='card col-lg-11 mb-5'>
-                  <img src=\"{$ktr['gambar']}\" class='card-img-top news-image' alt='...'>
-                  <div class='card-body main-container'>
-              ";
+        //   echo "
+        //       <div class='col-lg-9 col-md-12' style='margin-left:5rem;'>
+        //         <div class='card col-lg-11 mb-5'>
+        //           <img src=\"{$ktr['gambar']}\" class='card-img-top news-image' alt='...'>
+        //           <div class='card-body main-container'>
+        //       ";
 
-          echo "<p class='card-text main-card judul-berita'>" . $ktr['judul'] . "</p>";
-          echo "<p class='card-text main-card kategori-berita'>" . $ktr['kategori'] . "<i class='bi bi-square-fill'></i>" . $ktr['tanggal'] ."</p>";
+        //   echo "<p class='card-text main-card judul-berita'>" . $ktr['judul'] . "</p>";
+        //   echo "<p class='card-text main-card kategori-berita'>" . $ktr['kategori'] . "<i class='bi bi-square-fill'></i>" . $ktr['tanggal'] ."</p>";
 
-          echo "      
-              <div class='view-main-container'>
-                <a href=\"?view=news&id={$ktr['id']}\" class='btn btn-primary view-main-news'>Lihat Berita</a>
-              </div>
-            </div>
-          </div>
-          </div>";
-          echo " <div class='col-lg-2 col-md-12 color-white'>
-             ";
+        //   echo "      
+        //       <div class='view-main-container'>
+        //         <a href=\"?view=news&id={$ktr['id']}\" class='btn btn-primary view-main-news'>Lihat Berita</a>
+        //       </div>
+        //     </div>
+        //   </div>
+        //   </div>";
+        //   echo " <div class='col-lg-2 col-md-12 color-white'>
+        //      ";
 
-        // $query = "SELECT * FROM berita WHERE kategori = '$kategori'";
-        //           $result = $db->query($query);
-
-                  $outputKTR = [];
-                  $hasil = [];
-
-                //   foreach($result as $outputKTR) {
-                     
-                //   }
-
-
-                foreach($hasil as $outputKTR){
-                    $hasil[] = new outputKTR($outputKTR['id'], $outputKTR['judul'], $outputKTR['kategori'], $outputKTR['penulis'], $outputKTR['konten'], $outputKTR['tanggal'], $outputKTR['gambar']);
-                    echo "<tr>";
-                    echo "<td class='judul-admin'>" . $outputKTR->judul . "</td>";
-                    echo "<td>" . $outputKTR->kategori . "</td>";
-                    echo "<td>" . $outputKTR->penulis . "</td>";
-                    echo "<td class='konten-berita-admin;' id='id-konten;'>". "<div class='admin-row'>" . $outputKTR->konten . "</div>" . "</td>";
-                    echo "<td>" . $outputKTR->tanggal . "</td>";
-                    echo "<td> <img src=\"{$outputKTR->gambar}\" width = '200' height = '150'> </td>";
-                    // echo "<td> <a class='action-button' href=\"?view=deleteBerita&id={$outputKTR->id}\" style='color:black; margin-left:0.7rem;'><i class='bi bi-x-square-fill'></i></a>
-                    //            <a class='action-button' href=\"?view=editberita&id={$outputKTR->id}\" style=\"color:black\"><i class='bi bi-pencil-fill'></i></a>
-                    //       </td>";
-                 echo "</tr>";
-                }
+      
+                  
+                // }
     
-      for($i = 0; $i < 3; $i++){
-          $randomID = mt_rand(0, 3);
-             echo "
-              <div class='row'>
-              <div class='card text-end col-lg-11 side-card'>
-                <div class='card-body'>
-                  <img src=\"{$ktr['gambar']}\" class='card-img-top' alt='...'>
-                  <h5 class='card-title'>{$ktr['judul']}</h5>
-                  <a href=\"?view=news&id={$ktr['id']}\" class='btn btn-primary view-news'>Lihat Berita</a>
-                </div>
-              </div>
-              <br>
-              </div>";
-          }
-          echo "</div></div>";
+      // for($i = 0; $i < 3; $i++){
+      //     $randomID = mt_rand(0, 3);
+      //        echo "
+      //         <div class='row'>
+      //         <div class='card text-end col-lg-11 side-card'>
+      //           <div class='card-body'>
+      //             <img src=\"{$ktr['gambar']}\" class='card-img-top' alt='...'>
+      //             <h5 class='card-title'>{$ktr['judul']}</h5>
+      //             <a href=\"?view=news&id={$ktr['id']}\" class='btn btn-primary view-news'>Lihat Berita</a>
+      //           </div>
+      //         </div>
+      //         <br>
+      //         </div>";
+      //     }
+      //     echo "</div></div>";
           // $mysqli -> close();
       ?>
 
-          <script>
-// Add active class to the current button (highlight it)
-var header = document.getElementById("myDIV");
-var btns = header.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  current[0].className = current[0].className.replace(" active", "");
-  this.className += " active";
-  });
-}
-</script>
+<?php
+  // echo $outputKTR->judul;
+                    // echo $outputKTR->penulis;
 
+                    // echo "<tr>";
+                    // echo "<td class='judul-admin'>" . $outputKTR->judul . "</td>";
+                    // echo "<td>" . $outputKTR->kategori . "</td>";
+                    // echo "<td>" . $outputKTR->penulis . "</td>";
+                    // echo "<td class='konten-berita-admin;' id='id-konten;'>". "<div class='admin-row'>" . $outputKTR->konten . "</div>" . "</td>";
+                    // echo "<td>" . $outputKTR->tanggal . "</td>";
+                    // echo "<td> <img src=\"{$outputKTR->gambar}\" width = '200' height = '150'> </td>";
+                    // echo "<td> <a class='action-button' href=\"?view=deleteBerita&id={$outputKTR->id}\" style='color:black; margin-left:0.7rem;'><i class='bi bi-x-square-fill'></i></a>
+                    //            <a class='action-button' href=\"?view=editberita&id={$outputKTR->id}\" style=\"color:black\"><i class='bi bi-pencil-fill'></i></a>
+                    //       </td>";
+                    
+                //  echo "</tr>";
+?>
+
+        <div class="row;" style="width:80%;">
+<?php 
+        foreach($hasil as $outputKTR){
+            echo "<div class='col-3'>";
+            echo "<a href=\"?view=news&id={$outputKTR['id']}\"><img src='{$outputKTR['gambar']}'></a>";
+            echo "<p>Lihat Berita</p>";
+            echo "</div>";
+        }
+?>
+        </div>
 </body>
+
 </html>
+

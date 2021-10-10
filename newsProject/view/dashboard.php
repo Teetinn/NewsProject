@@ -47,12 +47,14 @@
                   echo "<div class='col-3' style='display:flex;'>";
                   echo "<div class='container-menu'>";
                 } else{
-                    echo "<div class='col-3' style='display:flex;'>";
+                    echo "<div class='col-3 logout-container'>";
                     echo "<a class='btn btn-danger crud-btn' href='?view=admin'>CRUD Berita</a>";
                 }
-                echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
+                echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a>";
+                echo "<div class='user-pp-container'>";
                 echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
                 echo "<img class='profile-picture' src=\"profileimg/{$fp}\">";
+                echo "</div>";
                 echo "</div>";
                 echo "</div>";
           }else{ ?>

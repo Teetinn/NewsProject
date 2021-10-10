@@ -108,6 +108,14 @@ body {
   font-size: 2.5rem;
 }
 
+.user-pp-container {
+  display: inline-flex;
+}
+
+.logout-container {
+  display: flex;
+}
+
 .logout-btn,
 .crud-btn {
   float: right;
@@ -429,6 +437,39 @@ option {
     display: block;
   }
 
+  .user-pp-container {
+    width: 100%;
+    display: flex;
+    padding-top: 2rem;
+    padding-left: 2.5rem;
+    margin-left: 10rem;
+  }
+
+  .profile-picture {
+    margin: 0;
+    border-radius: 100%;
+    width: 60px;
+    padding: 5px;
+    height: 60px;
+  }
+
+  .login-username {
+    font-size: 2rem;
+  }
+
+  .logout-container {
+    display: block;
+  }
+
+  .logout-btn,
+  .crud-btn {
+    width: 80%;
+    height: 15%;
+    padding: 2px 3px 6px 3px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+  }
+
   .login-btn,
   .regis-btn,
   input[type="submit"] {
@@ -452,6 +493,9 @@ option {
     width: 100%;
   }
 
+  .user-pp-container {
+    margin-left: 5rem;
+  }
   .view-news {
     font-size: 1.4rem;
   }
@@ -497,6 +541,10 @@ option {
     line-height: 4.5rem;
   }
 
+  .user-pp-container {
+    margin-left: 0rem;
+  }
+
   .container-header {
     padding: 1.5rem;
   }
@@ -539,6 +587,43 @@ option {
 
   .toggle-hide {
     display: none;
+  }
+
+  .container-btn {
+    display: block;
+  }
+
+  .user-pp-container {
+    width: 100%;
+    display: flex;
+    padding-top: 2rem;
+    padding-left: 2.5rem;
+  }
+
+  .profile-picture {
+    margin: 0;
+    border-radius: 100%;
+    width: 50px;
+    padding: 5px;
+    height: 50px;
+  }
+
+  .login-username {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .logout-container {
+    display: block;
+  }
+
+  .logout-btn,
+  .crud-btn {
+    width: 80%;
+    height: 15%;
+    padding: 2px 3px 6px 3px;
+    margin-bottom: 0px;
+    margin-top: 10px;
   }
 }
 

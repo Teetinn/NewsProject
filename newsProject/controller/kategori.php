@@ -11,12 +11,12 @@
   $query = "SELECT id, judul, kategori, penulis, konten, tanggal, gambar FROM berita WHERE kategori = '$kategori'";
 
     $result = $db->query($query);
-    $ktr = $result->fetch_assoc();
-    // $hasil[] = $ktr;
+    //$ktr = $result->fetch_assoc();
+    //$hasil[] = $ktr;
 
-    // while($ktr = $result->fetch_assoc()){
-    // $hasil[] = $ktr;
-    // }
+    while($ktr = $result->fetch_assoc()){
+     $hasil[] = $ktr;
+     }
   
 
   include "view/kategori.php";

@@ -82,22 +82,28 @@
           <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=nasional"><i class="far fa-flag"></i> Nasional</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=nasional"><i class="far fa-flag"></i>
+            Nasional</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=bisnis"><i class="bi bi-briefcase"></i> Bisnis</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=bisnis"><i class="bi bi-briefcase"></i>
+            Bisnis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=politik"><i class="bi bi-bank2"></i> Politik</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=politik"><i class="bi bi-bank2"></i>
+            Politik</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=olahraga"><i class="bi bi-bicycle"></i> Olahraga</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=olahraga"><i class="bi bi-bicycle"></i>
+            Olahraga</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=ekonomi"><i class="bi bi-cash-coin"></i> Ekonomi</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=ekonomi"><i class="bi bi-cash-coin"></i>
+            Ekonomi</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=hiburan"><i class="bi bi-controller"></i> Hiburan</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=hiburan"><i
+              class="bi bi-controller"></i> Hiburan</a>
         </li>
       </ul>
 
@@ -133,11 +139,11 @@
   </nav>
   <div style="height:20px"></div>
 
-  
+
   <div class='row thumbnail-row'>
-     <!-- <div class='col-1'></div> -->
-                
-   <?php
+    <div class='col-1'></div>
+
+    <?php
     include 'include/db_connection2.php';
       $query = "SELECT * FROM berita";
 
@@ -156,7 +162,7 @@
         $randomID = rand(0, $ctr);
         
           echo "
-              <div class='col-lg-9 col-md-12' style='margin-left:5rem;'>
+              <div class='col-lg-9 col-md-12'>
                 <div class='card col-lg-11 mb-5'>
                   <img src=\"{$news[$randomID]->gambar}\" class='card-img-top news-image' alt='...'>
                   <div class='card-body main-container'>
@@ -194,70 +200,70 @@
           // $mysqli -> close();
       ?>
 
-   
 
-<!-- Footer -->
-<footer class="bg-dark text-center text-white">
-  <!-- Section: Form -->
-  <section class="">
-    <form action="">
-      <!--Grid row-->
-      <div class="row d-flex justify-content-left">
-        <!--Grid column-->
-        <div class="col-auto">
-          <p class="pt-2" style="font-size:5rem; margin-top:2rem;">
-            <i class="bi bi-slack"></i><strong>PEM-WEB NEWS</strong>
-          </p>
-        </div>
-      </div>
-      <!--Grid row-->
-    </form>
-  </section>
-  <!-- Section: Form -->
 
-  <!-- Section: Text -->
-  <!-- <section class="mb-4">
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white">
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-left">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2" style="font-size:5rem; margin-top:2rem;">
+                <i class="bi bi-slack"></i><strong>PEM-WEB NEWS</strong>
+              </p>
+            </div>
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+
+      <!-- Section: Text -->
+      <!-- <section class="mb-4">
       <p style="font-size:2rem; padding: 5rem;">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
         repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
         eum harum corrupti dicta, aliquam sequi voluptate quas.
       </p>
     </section> -->
-  <!-- Section: Text -->
+      <!-- Section: Text -->
 
-  <!-- Section: Links -->
-  <section class="">
-    <!--Grid row-->
-    <div class="row">
-      <!--Grid column-->
-      <div class="col-lg-7 d-flex justify-content-left footer-kategori">
-      </div>
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-7 d-flex justify-content-left footer-kategori">
+          </div>
 
 
-      <!--Grid column-->
-      <div class="col-lg-5 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Links</h5>
+          <!--Grid column-->
+          <div class="col-lg-5 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links</h5>
 
-        <ul class="list-unstyled mb-0">
-          <li>
-            <a href="#!" class="text-white">Link 1</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 2</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 4</a>
-          </li>
-        </ul>
-      </div>
-      <!--Grid column-->
-    </div>
-    <!--Grid row-->
-  </section>
-  <!-- Section: Links -->
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">Link 1</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Link 2</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Link 3</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Link 4</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
   </div>
   <!-- Grid container -->
 
@@ -267,8 +273,9 @@
     <p style="font-size:1rem; padding-top:0.5rem;">Pem-Web News</p>
   </div>
   <!-- Copyright -->
-</footer>
-<!-- Footer -->
+  </footer>
+  <!-- Footer -->
 
-        </body>
+</body>
+
 </html>

@@ -109,61 +109,68 @@
 
   <div class="row">
     <div class="col-1"></div>
-      <div class="col-7" >
-        <div class="card col-lg-11 mb-5">
-          
+    <div class="col-7" >
+      <div class="card col-lg-11 mb-5">
+        
 
-          <div class="card-body main-container">
-          <?php  
-            echo "<p class='card-text main-card judul-berita'>" . $berita['judul'] . "</p>";
-            echo "<p class='card-text main-card kategori-berita'>" . $berita['kategori'] . "<i class='bi bi-square-fill'></i>" . $berita['tanggal'] ."</p>";
-            echo "<img src=\"{$berita['gambar']}\" class='card-img-top news-image' alt='...'>";   
-            echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
-          ?>
+        <div class="card-body main-container">
+        <?php  
+          echo "<p class='card-text main-card judul-berita'>" . $berita['judul'] . "</p>";
+          echo "<p class='card-text main-card kategori-berita'>" . $berita['kategori'] . "<i class='bi bi-square-fill'></i>" . $berita['tanggal'] ."</p>";
+          echo "<img src=\"{$berita['gambar']}\" class='card-img-top news-image' alt='...'>";   
+          echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
+        ?>
 
-          
-            <div class="comment-container" id="comment-form">
-              <h1 class="header-comment">Komentar</h1>
-              <form class="myForm" method="post">
-                 <label for="Comment" class="form-label">Comments</label>
-                <textarea name="Comment" class="form-control" id="Comment" placeholder="Comment" cols="30"
-                     rows="5"></textarea>
-                      <input type="Submit" name="submitcomment" value="submit" class="btn btn-primary mt-3">
-                    </div>
-              </form>
-              <?php
-                // echo "<form method='POST' action=''>
-                //   <input type='hidden' name='uid' value='Anonymous'>
-                //   <input type='hidden' name='date' value=''>
-                //   <textarea class='space-comment' id='Comment' rows='4' cols='50' name='Comment'>
-                //   </textarea>
+        
+          <div class="comment-container" id="comment-form">
+            <h1 class="header-comment">Komentar</h1>
+            <form class="myForm" method="post">
+                <label for="Comment" class="form-label">Comments</label>
+              <textarea name="Comment" class="form-control" id="Comment" placeholder="Comment" cols="30"
+                    rows="5"></textarea>
+                    <input type="Submit" name="submitcomment" value="submit" class="btn btn-primary mt-3">
+                  </div>
+            </form>
+            <?php
+              // echo "<form method='POST' action=''>
+              //   <input type='hidden' name='uid' value='Anonymous'>
+              //   <input type='hidden' name='date' value=''>
+              //   <textarea class='space-comment' id='Comment' rows='4' cols='50' name='Comment'>
+              //   </textarea>
 
-                //   <button type='submit' name='submitcomment' value='submit' class='btn btn-primary mt-3'>Kirim</button>
-                // </form>";
+              //   <button type='submit' name='submitcomment' value='submit' class='btn btn-primary mt-3'>Kirim</button>
+              // </form>";
 
-                $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$idnews'");
+              $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$idnews'");
+              
+              foreach($resultberita as $comment) {
+              // $idKomen = uniqid('');
+              $idKomen = $comment['IDkomen'];
+
+              $username = $comment['userName'];
+
+              $hasilUsername = $db->query("SELECT * FROM user WHERE userName = '$username'");
+              $comment['profile'] = $hasilUsername->fetch_assoc()['foto'];
                 
-                foreach($resultberita as $comment) {
-                // $idKomen = uniqid('');
-                $idKomen = $comment['IDkomen'];
-
-                $username = $comment['userName'];
-
-                $hasilUsername = $db->query("SELECT * FROM user WHERE userName = '$username'");
-                $comment['profile'] = $hasilUsername->fetch_assoc()['foto'];
-
-                echo "
-                    <div class=\"col-xl-11 col-lg-10 col-md-11 col-sm-10 col-10\">
+                
+              echo "
+                <div class=\"view-comment-container\">
+                  <div class=\"user-komentar\" style=\"display:flex\">
                     <img src=\"profileimg/{$comment['profile']}\" alt=\"user-profile\" class=\"user-image\" width='50' height='50'>
+                    <h4 class=\'commenter-name\' style=\"padding:4px\">{$comment['userName']}</h4>
+                    <h5 class=\'comment-date\' style=\"padding:6px; color:red;\">{$comment['tanggalKomen']}</h5>
+                  </div>";
+                    echo "
+                    <div class=\"komentar \">
+                    <h4 class=\"comment-content\">{$comment['isi']}</h4>
                     </div>
-                      <h4 class=\'commenter-name\'>{$comment['userName']}</h4>
-                      <h5 class=\'comment-date\'>{$comment['tanggalKomen']}</h5>";
-                      echo
-                      "<h4 class=\"comment-content\">{$comment['isi']}</h4>
-                      </div>";
-                }
-              ?>
-            </div>
+                  </div>";
+                  
+                    
+                  
+              }
+            ?>
+          </div>
     <!-- <div class="col-7" >
       <div class="card col-lg-11 mb-5">
         

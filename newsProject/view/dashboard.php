@@ -121,7 +121,7 @@
   <div style="height:20px"></div>
 
   
-  <div class='row'>
+  <div class='row thumbnail-row'>
      <!-- <div class='col-1'></div> -->
                 
    <?php
@@ -132,12 +132,15 @@
             
         $berita = [];
         $news = [];
+        
+        $ctr = 0;
 
         foreach($result as $berita) {
             $news[] = new berita($berita['id'], $berita['judul'], $berita['kategori'], $berita['penulis'], $berita['konten'], $berita['tanggal'], $berita['gambar']);
+            $ctr++;
         }
 
-        $randomID = rand(0, 10);
+        $randomID = rand(0, $ctr);
         
           echo "
               <div class='col-lg-9 col-md-12' style='margin-left:5rem;'>
@@ -161,7 +164,7 @@
       
     
       for($i = 0; $i < 3; $i++){
-          $randomID = rand(0, 12);
+          $randomID = mt_rand(0, $ctr);
              echo "
               <div class='row'>
               <div class='card text-end col-lg-11 side-card'>

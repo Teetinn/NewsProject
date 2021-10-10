@@ -142,14 +142,16 @@
              ";
       
              
-          for($i = 0; $i < 3; $i++){
+          
+     for($i = 0; $i < 3; $i++){
+          $randomID = mt_rand(0, 12);
 
              echo "
               <div class='row'>
               <div class='card text-end col-lg-11 side-card'>
                 <div class='card-body'>
-                  <img src=\"{$news[$i]->gambar}\" class='card-img-top' alt='...'>
-                  <h5 class='card-title'>{$news[$i]->judul}</h5>
+                  <img src=\"{$news[$randomID]->gambar}\" class='card-img-top' alt='...'>
+                  <h5 class='card-title'>{$news[$randomID]->judul}</h5>
                   <a href='#' class='btn btn-primary view-news'>Lihat Berita</a>
                 </div>
               </div>
@@ -158,8 +160,6 @@
           }
           echo "</div>";
       ?>
-
-    
 
 
   <footer class="bg-dark text-center text-white">

@@ -114,7 +114,7 @@
                     echo "<td class='judul-admin'>" . $berita->judul . "</td>";
                     echo "<td>" . $berita->kategori . "</td>";
                     echo "<td>" . $berita->penulis . "</td>";
-                    echo "<td class='konten-berita-admin'>". "<div class='admin-row'>" . $berita->konten . "</div>" . "</td>";
+                    echo "<td class='konten-berita-admin;' id='id-konten;'>". "<div class='admin-row'>" . $berita->konten . "</div>" . "</td>";
                     echo "<td>" . $berita->tanggal . "</td>";
                     echo "<td> <img src=\"{$berita->gambar}\" width = '200' height = '150'> </td>";
                     echo "<td> <a class='action-button' href=\"?view=deleteBerita&id={$berita->id}\" style='color:black; margin-left:0.7rem;'><i class='bi bi-x-square-fill'></i></a>

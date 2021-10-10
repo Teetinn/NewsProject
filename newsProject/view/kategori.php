@@ -68,6 +68,7 @@
     <?php } ?>
   </div>
 
+  
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
     <div class="container-fluid">
       <div class="burger" onclick="drop()">
@@ -77,10 +78,10 @@
       </div>
       <ul id="drop" class="navbar-nav nav-links toggle-hide me-auto mb-2 mb-lg-0 nav-fill nav-justified">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> Home</a>
+          <a class="nav-link" aria-current="page" href="?view=dashboard"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=nasional"><i class="far fa-flag"></i> Nasional</a>
+          <a class="nav-link active" aria-current="page" href="?view=kategori&kategori=nasional"><i class="far fa-flag"></i> Nasional</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="?view=kategori&kategori=bisnis"><i class="bi bi-briefcase"></i> Bisnis</a>
@@ -98,91 +99,96 @@
           <a class="nav-link" aria-current="page" href="?view=kategori&kategori=hiburan"><i class="bi bi-controller"></i> Hiburan</a>
         </li>
       </ul>
-
-      <?php 
-        $hasil=[];
-        foreach($hasil as $kategori){
-            // echo "<a href=\"?view=detailBerita&id={$kategori['id']}\"><img src=\"{$kategori['gambar']}\"><a>";
-            echo $kategori ['judul'];
-            echo $kategori ['konten'];
-            echo $kategori ['kategori'];
-            echo $kategori ['tanggal'];
-        }
-      ?>
-
-      <!-- <form class="d-flex">
-        <input class="form-control me-2 src-bar" style="margin:3px" type="search" placeholder="Search"
-          aria-label="Search">
-        <button class="btn right btn-outline-light src-btn" type="submit"><i class="bi bi-search"></i></button>
-      </form> -->
-
-      <!-- <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle user-action"><img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" class="avatar" alt="Avatar"> Antonio Moreno <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#"><i class="fa fa-user-o"></i> Profile</a></li>
-                        <li><a href="#"><i class="fa fa-calendar-o"></i> Calendar</a></li>
-                        <li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
-                    </ul>
-                </li> -->
-    </div>
+   </div>
     </div>
   </nav>
-  <div style="height:20px"></div>
 
-  
-  <div class='row thumbnail-row'>
+<!-- <?php
+   
+        echo $ktr ['judul'];
+        echo $ktr ['konten'];
+        echo $ktr ['kategori'];
+        echo $ktr ['tanggal'];
+    
+
+?> -->
+
+<div class='row thumbnail-row'>
      <!-- <div class='col-1'></div> -->
                 
    <?php
-    include 'include/db_connection2.php';
-      $query = "SELECT * FROM berita";
+    // include 'include/db_connection2.php';
+    //   $query = "SELECT * FROM berita";
 
-        $result = $db->query($query);
+    //     $result = $db->query($query);
             
-        $berita = [];
-        $news = [];
+    //     $berita = [];
+    //     $news = [];
         
-        $ctr = 0;
+    //     $ctr = 0;
 
-        foreach($result as $berita) {
-            $news[] = new berita($berita['id'], $berita['judul'], $berita['kategori'], $berita['penulis'], $berita['konten'], $berita['tanggal'], $berita['gambar']);
-            $ctr++;
-        }
+    //     foreach($result as $berita) {
+    //         $news[] = new berita($berita['id'], $berita['judul'], $berita['kategori'], $berita['penulis'], $berita['konten'], $berita['tanggal'], $berita['gambar']);
+    //         $ctr++;
+    //     }
 
-        $randomID = rand(0, $ctr);
+        $randomID = rand(0, 3);
         
           echo "
               <div class='col-lg-9 col-md-12' style='margin-left:5rem;'>
                 <div class='card col-lg-11 mb-5'>
-                  <img src=\"{$news[$randomID]->gambar}\" class='card-img-top news-image' alt='...'>
+                  <img src=\"{$ktr['gambar']}\" class='card-img-top news-image' alt='...'>
                   <div class='card-body main-container'>
               ";
 
-          echo "<p class='card-text main-card judul-berita'>" . $news[$randomID]->judul . "</p>";
-          echo "<p class='card-text main-card kategori-berita'>" . $news[$randomID]->kategori . "<i class='bi bi-square-fill'></i>" . $news[$randomID]->tanggal ."</p>";
+          echo "<p class='card-text main-card judul-berita'>" . $ktr['judul'] . "</p>";
+          echo "<p class='card-text main-card kategori-berita'>" . $ktr['kategori'] . "<i class='bi bi-square-fill'></i>" . $ktr['tanggal'] ."</p>";
 
           echo "      
               <div class='view-main-container'>
-                <a href=\"?view=news&id={$news[$randomID]->id}\" class='btn btn-primary view-main-news'>Lihat Berita</a>
+                <a href=\"?view=news&id={$ktr['id']}\" class='btn btn-primary view-main-news'>Lihat Berita</a>
               </div>
             </div>
           </div>
           </div>";
           echo " <div class='col-lg-2 col-md-12 color-white'>
              ";
-      
+
+        // $query = "SELECT * FROM berita WHERE kategori = '$kategori'";
+        //           $result = $db->query($query);
+
+                  $outputKTR = [];
+                  $hasil = [];
+
+                //   foreach($result as $outputKTR) {
+                     
+                //   }
+
+
+                foreach($hasil as $outputKTR){
+                    $hasil[] = new outputKTR($outputKTR['id'], $outputKTR['judul'], $outputKTR['kategori'], $outputKTR['penulis'], $outputKTR['konten'], $outputKTR['tanggal'], $outputKTR['gambar']);
+                    echo "<tr>";
+                    echo "<td class='judul-admin'>" . $outputKTR->judul . "</td>";
+                    echo "<td>" . $outputKTR->kategori . "</td>";
+                    echo "<td>" . $outputKTR->penulis . "</td>";
+                    echo "<td class='konten-berita-admin;' id='id-konten;'>". "<div class='admin-row'>" . $outputKTR->konten . "</div>" . "</td>";
+                    echo "<td>" . $outputKTR->tanggal . "</td>";
+                    echo "<td> <img src=\"{$outputKTR->gambar}\" width = '200' height = '150'> </td>";
+                    // echo "<td> <a class='action-button' href=\"?view=deleteBerita&id={$outputKTR->id}\" style='color:black; margin-left:0.7rem;'><i class='bi bi-x-square-fill'></i></a>
+                    //            <a class='action-button' href=\"?view=editberita&id={$outputKTR->id}\" style=\"color:black\"><i class='bi bi-pencil-fill'></i></a>
+                    //       </td>";
+                 echo "</tr>";
+                }
     
       for($i = 0; $i < 3; $i++){
-          $randomID = mt_rand(0, $ctr);
+          $randomID = mt_rand(0, 3);
              echo "
               <div class='row'>
               <div class='card text-end col-lg-11 side-card'>
                 <div class='card-body'>
-                  <img src=\"{$news[$randomID]->gambar}\" class='card-img-top' alt='...'>
-                  <h5 class='card-title'>{$news[$randomID]->judul}</h5>
-                  <a href=\"?view=news&id={$news[$randomID]->id}\" class='btn btn-primary view-news'>Lihat Berita</a>
+                  <img src=\"{$ktr['gambar']}\" class='card-img-top' alt='...'>
+                  <h5 class='card-title'>{$ktr['judul']}</h5>
+                  <a href=\"?view=news&id={$ktr['id']}\" class='btn btn-primary view-news'>Lihat Berita</a>
                 </div>
               </div>
               <br>
@@ -192,81 +198,18 @@
           // $mysqli -> close();
       ?>
 
-   
+          <script>
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+</script>
 
-<!-- Footer -->
-<footer class="bg-dark text-center text-white">
-  <!-- Section: Form -->
-  <section class="">
-    <form action="">
-      <!--Grid row-->
-      <div class="row d-flex justify-content-left">
-        <!--Grid column-->
-        <div class="col-auto">
-          <p class="pt-2" style="font-size:5rem; margin-top:2rem;">
-            <i class="bi bi-slack"></i><strong>PEM-WEB NEWS</strong>
-          </p>
-        </div>
-      </div>
-      <!--Grid row-->
-    </form>
-  </section>
-  <!-- Section: Form -->
-
-  <!-- Section: Text -->
-  <!-- <section class="mb-4">
-      <p style="font-size:2rem; padding: 5rem;">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-        eum harum corrupti dicta, aliquam sequi voluptate quas.
-      </p>
-    </section> -->
-  <!-- Section: Text -->
-
-  <!-- Section: Links -->
-  <section class="">
-    <!--Grid row-->
-    <div class="row">
-      <!--Grid column-->
-      <div class="col-lg-7 d-flex justify-content-left footer-kategori">
-      </div>
-
-
-      <!--Grid column-->
-      <div class="col-lg-5 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Links</h5>
-
-        <ul class="list-unstyled mb-0">
-          <li>
-            <a href="#!" class="text-white">Link 1</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 2</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 4</a>
-          </li>
-        </ul>
-      </div>
-      <!--Grid column-->
-    </div>
-    <!--Grid row-->
-  </section>
-  <!-- Section: Links -->
-  </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color:#181b1d; color: white; font-size:1.5rem;">
-    © 2021 Copyright
-    <p style="font-size:1rem; padding-top:0.5rem;">Pem-Web News</p>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
-
-        </body>
+</body>
 </html>

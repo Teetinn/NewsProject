@@ -43,16 +43,11 @@
             $mhs = $result->fetch_assoc();
             $fp = $mhs['foto'];
             if($mhs['type'] == "user"){
-                  // echo "<script>alert('welcome user');</script>";
                   echo "<div class='col-3' style='display:flex;'>";
                   echo "<div class='container-menu'>";
                 } else{
-                    // if(isset($_POST["userView"])){
-                    //     echo "<script>alert('dkjsfjlf');</script>";
-                    // }else{
                     echo "<div class='col-3' style='display:flex;'>";
                     echo "<a class='btn btn-danger crud-btn' href='?view=admin'>CRUD Berita</a>";
-                    // echo "<script>document.location.href='?view=admin';</script>";
                 }
                 echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
                 echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
@@ -73,27 +68,27 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
     <div class="container-fluid">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-fill nav-justified">
+     <ul id="drop" class="navbar-nav nav-links toggle-hide me-auto mb-2 mb-lg-0 nav-fill nav-justified">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="?view=dashboard"><i class="bi bi-briefcase"></i> Home</a>
+          <a class="nav-link" aria-current="page" href="?view=dashboard"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Nasional</a>
+          <a class="nav-link active" aria-current="page" href="?view=kategori&kategori=nasional"><i class="far fa-flag"></i> Nasional</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-briefcase"></i> Bisnis</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=bisnis"><i class="bi bi-briefcase"></i> Bisnis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bank2"></i> Politik</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=politik"><i class="bi bi-bank2"></i> Politik</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-bicycle"></i> Olahraga</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=olahraga"><i class="bi bi-bicycle"></i> Olahraga</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-cash-coin"></i> Ekonomi</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=ekonomi"><i class="bi bi-cash-coin"></i> Ekonomi</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#"><i class="bi bi-controller"></i> Hiburan</a>
+          <a class="nav-link" aria-current="page" href="?view=kategori&kategori=hiburan"><i class="bi bi-controller"></i> Hiburan</a>
         </li>
       </ul>
     </div>
@@ -115,9 +110,6 @@
           echo "<p class='card-text main-card kategori-berita'>" . $berita['kategori'] . "<i class='bi bi-square-fill'></i>" . $berita['tanggal'] ."</p>";
           echo "<img src=\"{$berita['gambar']}\" class='card-img-top news-image' alt='...'>";   
           echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
-
-
-          
         ?>
 
         
@@ -138,24 +130,21 @@
     </div>
 
     <?php
-      echo " <div class='col-lg-3 col-md-12 color-white'>
-             ";
-      
-             
-          
-     for($i = 0; $i < 3; $i++){
+      echo " <div class='col-lg-3 col-md-12 color-white news-sidebar clearfix'>";
+ 
+      for($i = 0; $i < 5; $i++){
           $randomID = mt_rand(0, 12);
 
              echo "
               <div class='row'>
-              <div class='card text-end col-lg-11 side-card'>
-                <div class='card-body'>
-                  <img src=\"{$news[$randomID]->gambar}\" class='card-img-top' alt='...'>
-                  <h5 class='card-title'>{$news[$randomID]->judul}</h5>
-                  <a href='#' class='btn btn-primary view-news'>Lihat Berita</a>
+                <div class='card text-end col-lg-11 side-card'>
+                  <div class='card-body'>
+                    <img src=\"{$news[$randomID]->gambar}\" class='card-img-top' alt='...'>
+                    <h5 class='card-title'>{$news[$randomID]->judul}</h5>
+                    <a href=\"?view=news&id={$news[$randomID]->id}\" class='btn btn-primary view-news'>Lihat Berita</a>
+                  </div>
                 </div>
-              </div>
-              <br>
+                <br>
               </div>";
           }
           echo "</div>";

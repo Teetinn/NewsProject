@@ -109,7 +109,6 @@
 
   <div class="row">
     <div class="col-1"></div>
-<<<<<<< HEAD
       <div class="col-7" >
         <div class="card col-lg-11 mb-5">
           
@@ -138,11 +137,16 @@
                 $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$idnews'");
                 
                 foreach($resultberita as $comment) {
-                $idKomen = uniqid('');
-                // $idKomen = $comment['IDkomen'];
+                // $idKomen = uniqid('');
+                $idKomen = $comment['IDkomen'];
+                var_dump($idKomen);
+                die;
+
                 $username = $comment['userName'];
+                var_dump($username);
+                die;
                 
-                $hasiltUsername = $db->query("SELECT * FROM user WHERE userName = '$username'");
+                $hasilUsername = $db->query("SELECT * FROM user WHERE userName = '$username'");
                 $comment['profile'] = $hasilUsername->fetch_assoc()['gambar'];
 
                 echo "
@@ -151,14 +155,12 @@
                     </div>
                       <h4 class=\"commenter-name\">{$comment['userName']}</h4><span class=\"comment-date\">{$comment['tanggalKomen']}</span>
                       <p class=\"comment-content\">{$comment['isi']}</p>
-                      <a href=\"?view=detailberita&id={$idnews}&tujuan={$idKomen}\">
                       </a>
                     </div>";
                 }
               ?>
             </div>
-=======
-    <div class="col-7" >
+    <!-- <div class="col-7" >
       <div class="card col-lg-11 mb-5">
         
 
@@ -168,10 +170,10 @@
           echo "<p class='card-text main-card kategori-berita'>" . $berita['kategori'] . "<i class='bi bi-square-fill'></i>" . $berita['tanggal'] ."</p>";
           echo "<img src=\"{$berita['gambar']}\" class='card-img-top news-image' alt='...'>";   
           echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
-        ?>
+        ?> -->
 
         
-          <div class="comment-container" id="comment-form">
+          <!-- <div class="comment-container" id="comment-form">
             <h1 class="header-comment">Komentar</h1>
             <?php
               echo "<form method='POST' action=''>
@@ -182,10 +184,10 @@
                 <button type='submit' name='commentSubmit' class='commentSubmit'>Kirim</button>
               </form>";
             ?>
->>>>>>> 3837b3fb446345fc0bcfee967a83fe7b50fd06de
-          </div>
+          </div> -->
       </div>
     </div>
+              </div>
 
     <?php
       echo " <div class='col-lg-3 col-md-12 color-white news-sidebar clearfix'>";

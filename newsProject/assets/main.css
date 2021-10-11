@@ -89,7 +89,7 @@ body {
 .container-menu {
   width: 100%;
   display: flex;
-  margin-left: 10rem;
+  margin-left: 5rem;
   margin-right: -10rem;
 }
 

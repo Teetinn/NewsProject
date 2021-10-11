@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<section class="vh-100 bg-image" style="background-image: url('assets/wallpaper.jpg');">
+<section class="vh-100 bg-image" style="background-image: url('assets/reg-img.jpg'); background-size:contain">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">

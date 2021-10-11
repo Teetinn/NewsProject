@@ -88,9 +88,7 @@ body {
 
 .container-menu {
   width: 100%;
-  display: inline-block;
-  margin-left: 10rem;
-  margin-right: -10rem;
+  display: flex;
 }
 
 .profile-picture {
@@ -99,6 +97,7 @@ body {
   border-radius: 100%;
   width: 6rem;
   height: 6rem;
+  margin-top: 10px;
 }
 
 .login-username {
@@ -188,10 +187,6 @@ input[type="submit"]:hover,
 
 .right {
   float: right;
-}
-
-.thumbnail-row {
-  margin-bottom: 5rem;
 }
 
 .side-card {
@@ -541,7 +536,7 @@ option {
   }
 
   .profile-picture {
-    margin: 0;
+    margin-bottom: 10px;
   }
 
   .login-username {
@@ -550,7 +545,7 @@ option {
   }
 
   .user-pp-container {
-    padding: 0;
+    padding-bottom: 10px;
   }
 
   .logout-btn,
@@ -609,13 +604,18 @@ option {
     /* padding: 1rem; */
   }
 
+  .container-menu {
+    display: block;
+  }
+
   .user-pp-container {
     padding: 1rem;
-    float: right;
+    justify-content: space-around;
   }
 
   .view-news {
     font-size: 1.1rem;
+    width: 80%;
   }
   .card-title {
     font-size: 1.6rem;
@@ -630,22 +630,24 @@ option {
   }
   .login-username {
     padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
   }
 
   .login-btn,
   .regis-btn {
     width: 100%;
     height: 30%;
-    margin: 20px;
+    margin: 10px 5px 5px 5px;
     display: block;
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .logout-btn,
   .crud-btn {
     width: 80%;
-    height: 15%;
-    margin: 10px;
+    height: 25%;
+    margin: 4px;
     display: block;
   }
 
@@ -658,6 +660,7 @@ option {
     border-radius: 100%;
     width: 4rem;
     height: 4rem;
+    margin: 0;
   }
 }
 

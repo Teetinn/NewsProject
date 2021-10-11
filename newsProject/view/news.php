@@ -1,6 +1,7 @@
 <?php
   session_start();
   INCLUDE 'include/db_connection2.php';
+  include 'include/db_connection.php'; 
   if(isset($_GET['id'])){
     $idnews = $_GET['id'];
     $query = "SELECT id, judul, kategori, penulis, konten, DATE_FORMAT(tanggal, '%W, %D %M %Y') 'tanggal', gambar FROM berita WHERE id ='$idnews'";
@@ -20,9 +21,8 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-   <script src="assets/app.js"></script>
-
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="assets/app.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +39,7 @@
   <script>
     AOS.init();
   </script>
+
   <div class="row ctr-container-header">
     <div class="container-logo col-3">
       <i class="bi bi-slack"></i>
@@ -46,32 +47,34 @@
     <div class="container-header col-6">
       <h1 class="header-berita">PEM-WEB NEWS</h1>
     </div>
+
     <?php
-    include 'include/db_connection.php'; 
     if( isset($_SESSION["userName"]) && !empty($_SESSION['userName']) ){
       $id = $_SESSION['userName'];
             $result = $db->query("SELECT * FROM user WHERE userName = '$id'");
             $mhs = $result->fetch_assoc();
             $fp = $mhs['foto'];
             if($mhs['type'] == "user"){
-                  echo "<div class='col-3' style='display:flex;'>";
-                  echo "<div class='container-menu'>";
-                } else{
                     echo "<div class='col-3' style='display:flex;'>";
-                    echo "<a class='btn btn-danger crud-btn' href='?view=admin'>CRUD Berita</a>";
-                }
-                echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
-                echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
-                echo "<img class='profile-picture' src=\"profileimg/{$fp}\">";
-                echo "</div>";
-                echo "</div>";
-          }else{ ?>
+                    echo "<div class='container-menu'>";
+                  } else{
+                      echo "<div class='col-3 logout-container'>";
+                      echo "<a class='btn btn-danger crud-btn' href='?view=admin'>CRUD Berita</a>";
+                  }
+                  echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a>";
+                  echo "<div class='user-pp-container'>";
+                  echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
+                  echo "<img class='profile-picture' src=\"profileimg/{$fp}\">";
+                  echo "</div>";
+                  echo "</div>";
+                  echo "</div>";
+            }else{ ?>
       <div class="container-btn col-3">
         <a href="?view=login" class="btn-login">
-          <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i>Login</button>
+          <button type="button" class="btn btn-primary login-btn"><i class="bi bi-person-check-fill"></i> Login</button>
         </a>
         <a href="?view=register" class="btn-register"><button type="button" class="btn btn-primary regis-btn"><i
-              class="bi bi-person-plus-fill"></i>Register</button>
+              class="bi bi-person-plus-fill"></i> Register</button>
         </a>
       </div>
     <?php } ?>
@@ -119,7 +122,6 @@
     <div class="col-lg-7 col-mb-12">
       <div class="card col-lg-11 col-mb-12 mb-5">
         
-
         <div class="card-body main-container">
         <?php  
           echo "<p class='card-text main-card judul-berita'>" . $berita['judul'] . "</p>";
@@ -128,7 +130,6 @@
           echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
         ?>
 
-        
           <div class="comment-container" id="comment-form">
             <h1 class="header-comment">Komentar</h1>
             <form class="myForm" method="post">
@@ -138,14 +139,14 @@
                     <input type="Submit" name="submitcomment" value="submit" class="btn btn-primary mt-3">
                   </div>
             </form>
+
             <?php
-              
+
               $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$idnews'");
               
               foreach($resultberita as $comment) {
-              // $idKomen = uniqid('');
+        
               $idKomen = $comment['IDkomen'];
-
               $username = $comment['userName'];
 
               $hasilUsername = $db->query("SELECT * FROM user WHERE userName = '$username'");
@@ -163,48 +164,17 @@
                     <div class=\"komentar \">
                     <h4 class=\"comment-content\">{$comment['isi']}</h4>
                     </div>
-                  </div>";
-                  
-                    
-                  
+                  </div>";       
               }
             ?>
           </div>
-    <!-- <div class="col-7" >
-      <div class="card col-lg-11 mb-5">
-        
-
-        <div class="card-body main-container">
-        <?php  
-          echo "<p class='card-text main-card judul-berita'>" . $berita['judul'] . "</p>";
-          echo "<p class='card-text main-card kategori-berita'>" . $berita['kategori'] . "<i class='bi bi-square-fill'></i>" . $berita['tanggal'] ."</p>";
-          echo "<img src=\"{$berita['gambar']}\" class='card-img-top news-image' alt='...'>";   
-          echo "<p id='id-konten' class='card-text main-card konten-berita'>" . $berita['konten'] . "</p>";
-        ?> -->
-
-        
-          <!-- <div class="comment-container" id="comment-form">
-            <h1 class="header-comment">Komentar</h1>
-            <?php
-              echo "<form method='POST' action=''>
-                <input type='hidden' name='uid' value='Anonymous'>
-                <input type='hidden' name='date' value=''>
-                <textarea class='space-comment' rows='4' cols='50' name='message'>
-                </textarea>
-                <button type='submit' name='commentSubmit' class='commentSubmit'>Kirim</button>
-              </form>";
-            ?>
-          </div> -->
       </div>
     </div>
-  
-
+            
     <?php
       echo " <div class='col-lg-3 col-md-12 color-white news-sidebar'>";
- 
       for($i = 0; $i < 5; $i++){
           // $randomID = mt_rand(0, 12);
-
              echo "
               <div class='row'>
                 <div class='card text-end col-lg-11 side-card' data-aos='fade-left''>
@@ -219,7 +189,6 @@
           }
           echo "</div>";
       ?>
-
 
   <footer class="bg-dark text-center text-white">
     <section class="">
@@ -237,41 +206,6 @@
       </form>
     </section>
 
-    <section class="">
-      <!--Grid row-->
-      <div class="row">
-        <!--Grid column-->
-        <div class="col-lg-7 d-flex justify-content-left footer-kategori">
-         
-        </div>
-
-
-        <!--Grid column-->
-        <div class="col-lg-5 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-      </div>
-      <!--Grid row-->
-    </section>
-    <!-- Section: Links -->
-  </div>
-  <!-- Grid container -->
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color:#181b1d; color: white; font-size:1.5rem;">
@@ -282,20 +216,18 @@
 </footer>
 <!-- Footer -->
 
- <script>
-    function enter(){
-      var kid = document.getElementById('id-konten');
-      var splitted = kid.textContent.split("\n");
-      
-      var bebas = splitted.map(text => !text.length ? "<br><br>" : text)
+<script>
+  function enter(){
+    var kid = document.getElementById('id-konten');
+    var splitted = kid.textContent.split("\n");
+    
+    var bebas = splitted.map(text => !text.length ? "<br><br>" : text)
 
-      kid.innerHTML = bebas.join('');
-      console.log(bebas)
-      }
+    kid.innerHTML = bebas.join('');
+    console.log(bebas)
+    }
 
-    enter();
-  </script>
-
- 
+  enter();
+</script>
 </body>
 </html>

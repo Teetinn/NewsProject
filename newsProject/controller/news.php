@@ -1,6 +1,5 @@
 <?php
   INCLUDE  "view/news.php";
-  // session_start();
 
   if(isset($_SESSION['id'])){
     $userId = $_SESSION['id'];
@@ -9,13 +8,6 @@
         $newsID = $_GET['id'];
     }
         
-    
-    // $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$newsID'");
-     
-    //  foreach($result as $comment) {
-    //    $komentar[] = $comment;
-       
-    //  }
 
 if(isset($_POST['submitcomment'])) {
     if($_SESSION['id']) {
@@ -30,8 +22,6 @@ if(isset($_POST['submitcomment'])) {
     } else{
       echo "<script>document.location.href = '?view=login'</script>";
     }
+  }
 }
-}
-
-
 ?>

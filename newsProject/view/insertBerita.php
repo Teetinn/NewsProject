@@ -44,10 +44,7 @@
                               <label for="judul" class="form-label">Judul Berita</label>
                               <input type="text" class="form-control input-box" id="judul" name="judul" value="" placeholder="Insert Judul Berita" >
                           </div>
-                        <!-- <div class="mb-3">
-                            <label for="kategori" class="form-label">Kategori Berita</label>
-                            <input type="text" class="form-control input-box" id="kategori" name="kategori" placeholder="Kategori" >
-                        </div> -->
+                  
                         <div class="mb-3">
                         <label for="kategori" class="form-label form-label-select">Kategori Berita</label>
                           <select id="kategori" class="form-select form-control" name="kategori">
@@ -60,15 +57,18 @@
                           <option value="hiburan" class="form-select-option">Hiburan</option>
                         </select>
                         </div>
+
                         <div class="mb-3">
                             <label for="penulis" class="form-label">Penulis</label>
                             <input type="text" class="form-control input-box" id="penulis" name="penulis" placeholder="Penulis Berita" >
                         </div>
+
                         <div class="mb-3">
                             <label for="konten" class="form-label">Konten Berita</label>
                             <textarea type="text" class="form-control" id="konten" name="konten" placeholder="konten Berita" cols="40" rows="5"> </textarea>
                         </div>
-                          <div class="mb-3">
+
+                        <div class="mb-3">
                             <label for="tanggal" class="form-label">Tanggal Publikasi</label>
                             <input type="date" class="form-control input-box" id="tanggal" name="tanggal" placeholder="tanggal Berita" >
                         </div>
@@ -79,6 +79,7 @@
                         </div>
                           <button type="submit" name="upload" class="btn btn-primary upload-btn">Upload</button> 
                         </form>
+                        
                         <form action="?view=admin" method="POST">
                           <button type="submit" name="back" class="btn btn-danger cancel-btn">Cancel</button>
                         </form>

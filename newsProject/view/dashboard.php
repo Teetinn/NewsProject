@@ -1,7 +1,11 @@
+<?php 
+  session_start();
+  include 'include/db_connection.php'; 
+  include 'include/db_connection2.php';
+?>
+
 <!DOCTYPE html>
 <html>
-<?php session_start(); ?>
-
 <head>
   <title>Pem-Web News</title>
   <meta charset="utf-8">
@@ -11,7 +15,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +30,6 @@
   <script src="assets/app.js"></script>
 
   <link rel="stylesheet" href="assets/main.css">
-
 </head>
 
 <body>
@@ -43,7 +45,7 @@
       <h1 class="header-berita">PEM-WEB NEWS</h1>
     </div>
     <?php
-    include 'include/db_connection.php'; 
+   
     if( isset($_SESSION["userName"]) && !empty($_SESSION['userName']) ){
       
           $id = $_SESSION['userName'];
@@ -73,7 +75,6 @@
             class="bi bi-person-plus-fill"></i> Register</button>
       </a>
     </div>
-
     <?php } ?>
   </div>
 
@@ -117,30 +118,12 @@
       <?php 
         $hasil=[];
         foreach($hasil as $kategori){
-            // echo "<a href=\"?view=detailBerita&id={$kategori['id']}\"><img src=\"{$kategori['gambar']}\"><a>";
             echo $kategori ['judul'];
             echo $kategori ['konten'];
             echo $kategori ['kategori'];
             echo $kategori ['tanggal'];
         }
       ?>
-
-      <!-- <form class="d-flex">
-        <input class="form-control me-2 src-bar" style="margin:3px" type="search" placeholder="Search"
-          aria-label="Search">
-        <button class="btn right btn-outline-light src-btn" type="submit"><i class="bi bi-search"></i></button>
-      </form> -->
-
-      <!-- <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle user-action"><img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" class="avatar" alt="Avatar"> Antonio Moreno <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#"><i class="fa fa-user-o"></i> Profile</a></li>
-                        <li><a href="#"><i class="fa fa-calendar-o"></i> Calendar</a></li>
-                        <li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
-                    </ul>
-                </li> -->
     </div>
     </div>
   </nav>
@@ -151,9 +134,7 @@
     <div class='col-1'></div>
 
     <?php
-    include 'include/db_connection2.php';
       $query = "SELECT * FROM berita";
-
         $result = $db->query($query);
             
         $berita = [];
@@ -168,25 +149,22 @@
 
         $randomID = mt_rand(0, $ctr-1);
         
-          echo "
-              <div class='col-lg-9 col-md-12'>
-                <div class='card col-lg-11 mb-5'>
-                  <img src=\"{$news[$randomID]->gambar}\" class='card-img-top news-image' alt='...'>
-                  <div class='card-body main-container'>
-              ";
+          echo "<div class='col-lg-9 col-md-12'>
+                  <div class='card col-lg-11 mb-5'>
+                    <img src=\"{$news[$randomID]->gambar}\" class='card-img-top news-image' alt='...'>
+                    <div class='card-body main-container'>";
 
           echo "<p class='card-text main-card judul-berita'>" . $news[$randomID]->judul . "</p>";
           echo "<p class='card-text main-card kategori-berita'>" . $news[$randomID]->kategori . "<i class='bi bi-square-fill'></i>" . $news[$randomID]->tanggal ."</p>";
 
-          echo "      
-              <div class='view-main-container'>
-                <a href=\"?view=news&id={$news[$randomID]->id}\" class='btn btn-primary view-main-news'>Lihat Berita</a>
+              
+          echo "       <div class='view-main-container'>
+                    <a href=\"?view=news&id={$news[$randomID]->id}\" class='btn btn-primary view-main-news'>Lihat Berita</a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          </div>";
-          echo " <div class='col-lg-2 col-md-12 color-white'>
-             ";
+              </div>";
+          echo " <div class='col-lg-2 col-md-12 color-white'>";
       
     
       for($i = 0; $i < 3; $i++){
@@ -204,7 +182,6 @@
               </div>";
           }
           echo "</div></div>";
-          // $mysqli -> close();
       ?>
 
 
@@ -228,42 +205,7 @@
       </section>
       <!-- Section: Form -->
 
-      <!-- Section: Links -->
-      <section class="">
-        <!--Grid row-->
-        <div class="row">
-          <!--Grid column-->
-          <div class="col-lg-7 d-flex justify-content-left footer-kategori">
-          </div>
-
-
-          <!--Grid column-->
-          <div class="col-lg-5 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links</h5>
-
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#!" class="text-white">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Link 4</a>
-              </li>
-            </ul>
-          </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
-      </section>
-      <!-- Section: Links -->
-  </div>
-  <!-- Grid container -->
-
+   
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color:#181b1d; color: white; font-size:1.5rem;">
     © 2021 Copyright

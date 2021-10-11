@@ -25,9 +25,7 @@
   <script src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
   <script src="assets/app.js"></script>
 
-
   <link rel="stylesheet" href="assets/main.css">
-
 </head>
 
 <body>
@@ -43,6 +41,7 @@
     <div class="container-header col-6">
       <h1 class="header-berita">PEM-WEB NEWS</h1>
     </div>
+
     <?php
     include 'include/db_connection.php'; 
     if( isset($_SESSION["userName"]) && !empty($_SESSION['userName']) ){
@@ -55,12 +54,14 @@
                   echo "<div class='col-3' style='display:flex;'>";
                   echo "<div class='container-menu'>";
                 } else{
-                    echo "<div class='col-3' style='display:flex;'>";
+                    echo "<div class='col-3 logout-container'>";
                     echo "<a class='btn btn-danger crud-btn' href='?view=admin'>CRUD Berita</a>";
                 }
-                echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a></nav>";
+                echo "<a class='btn btn-danger logout-btn' aria-current='page' href='?view=logout'>Logout</a>";
+                echo "<div class='user-pp-container'>";
                 echo "<p class='login-username'>" . $_SESSION['userName'] . "</p>";
                 echo "<img class='profile-picture' src=\"profileimg/{$fp}\">";
+                echo "</div>";
                 echo "</div>";
                 echo "</div>";
           }else{ ?>
@@ -73,8 +74,8 @@
       </a>
     </div>
 
-    <?php } ?>
-  </div>
+          <?php } ?>
+        </div>
 
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
@@ -111,39 +112,33 @@
     </div>
   </nav>
 
-<div class='row thumbnail-row'>
-
-
-        <div class='container-kategori'>
+  <div class='row thumbnail-row'>
+    <div class='container-kategori'>
         
-<?php 
-        foreach($hasil as $outputKTR){
-            
-            echo "<div class='row kategori-row'>";
-            echo "<div class='card text-end col-lg-8 offset-lg-2 kategori-card' data-aos='fade-right'>";
-            echo "<div class='card-body'>";
-            echo "<div class='row'>";
-            
-            echo "<div class='col-4'>";
-            echo "<a href=\"?view=news&id={$outputKTR['id']}\"><img class='kategori-gambar' src='{$outputKTR['gambar']}'></a>";
-            echo "</div>";
+    <?php 
+    foreach($hasil as $outputKTR){
+        
+        echo "<div class='row kategori-row'>";
+        echo "<div class='card text-end col-lg-8 offset-lg-2 kategori-card' data-aos='fade-right'>";
+        echo "<div class='card-body'>";
+        echo "<div class='row'>";
+        
+        echo "<div class='col-4'>";
+        echo "<a href=\"?view=news&id={$outputKTR['id']}\"><img class='kategori-gambar' src='{$outputKTR['gambar']}'></a>";
+        echo "</div>";
 
-            echo "<div class='col-8'>";
-            echo "<h5 class='kategori-title'>" . $outputKTR['judul'] . "</h5>";
-            echo "<a href=\"?view=news&id={$outputKTR['id']}\" class='btn btn-primary view-news'>Lihat Berita</a>";
-            echo "</div>";
-            echo "</div>
-                </div>
-                <br>
-              </div>";
-              }   
-            echo "</div>";
-            echo "</div>";
-           
-?>
-     </div>
+        echo "<div class='col-8'>";
+        echo "<h5 class='kategori-title'>" . $outputKTR['judul'] . "</h5>";
+        echo "<a href=\"?view=news&id={$outputKTR['id']}\" class='btn btn-primary view-news'>Lihat Berita</a>";
+        echo "</div>";
+        echo "</div></div><br></div>";
+        }   
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        ?>
 
-     <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-dark text-center text-white">
       <!-- Section: Form -->
       <section class="">
@@ -160,14 +155,8 @@
           <!--Grid row-->
         </form>
       </section>
+      <!-- Section: Form -->
 
-      <!-- Section: Links -->
-      <section class="">
-        <!--Grid row-->
-        <div class="row">
-          <!--Grid column-->
-          <div class="col-lg-7 d-flex justify-content-left footer-kategori">
-          </div>
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color:#181b1d; color: white; font-size:1.5rem;">
@@ -177,6 +166,7 @@
   <!-- Copyright -->
   </footer>
   <!-- Footer -->
+
 </body>
 
 </html>

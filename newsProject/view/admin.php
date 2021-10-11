@@ -26,13 +26,6 @@
 </head>
 <body>
 
- <!-- <div class="row ctr-container-header">
-    <div class="container-logo col-3">
-      <i class="bi bi-slack"></i>
-    </div>
-    <div class="container-header col-6">
-      <h1 class="header-berita">PEM-WEB NEWS</h1>
-    </div> -->
     <?php
     include 'include/db_connection.php'; 
     if( isset($_SESSION["userName"]) && !empty($_SESSION['userName']) ){
@@ -121,7 +114,6 @@
                                <a class='action-button' href=\"?view=editberita&id={$berita->id}\" style=\"color:black\"><i class='bi bi-pencil-fill'></i></a>
                           </td>";
                  echo "</tr>";
-                
                 }
                 mysqli_free_result($result);
                 mysqli_close($db);
@@ -130,11 +122,11 @@
             </tbody>
                             
             <tfoot>
-                   <tr>
-                    </tr>
+              <tr>
+              </tr>
             </tfoot>
-    </table>
-              </div>
+          </table>
+        </div>
     </div>
 
     <script>

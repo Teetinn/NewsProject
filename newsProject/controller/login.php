@@ -6,7 +6,6 @@ if(isset($_POST['submit'])) {
     $password = $_POST['password'];
     $userName = $_POST['userName'];
 
-    //back script google captcha
     if(isset($_POST['g-recaptcha-response'])) $captcha= $_POST['g-recaptcha-response'];
      if(!$captcha){
             echo "<h2>Please check the captcha</h2>";
@@ -48,39 +47,14 @@ if(isset($_POST['submit'])) {
           echo "
               <script>
                   alert(\"Username atau Password Salah\");
-                 
               </script>
           ";
              echo "
               <script>
                    document.location.href = ?view=login';
-                 
               </script>
           ";
-      }
-      
-
-        // if(password_verify($password, $account['password'])) {
-        //     echo "<form id='form' action='?view=dashboard' method='POST'>
-        //             <input type='hidden' name='userName' value='{$account['userName']}'>
-        //          </form>
-        //          <script>
-        //             document.getElementById('form').submit();
-        //          </script>";
-                 
-            
-           
-        // }else {
-        //     echo "
-        //         <script>
-        //             alert('Incorrect Username or Password! Please Try again!');
-        //             document.location.href = '?view=login';
-        //         </script>
-            
-        //     ";
-        // }
-
-        
+      } 
        
 }
 

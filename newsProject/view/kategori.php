@@ -142,6 +142,41 @@
            
 ?>
      </div>
+
+     <!-- Footer -->
+    <footer class="bg-dark text-center text-white">
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-left">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2" style="font-size:5rem; margin-top:2rem;">
+                <i class="bi bi-slack"></i><strong>PEM-WEB NEWS</strong>
+              </p>
+            </div>
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-7 d-flex justify-content-left footer-kategori">
+          </div>
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color:#181b1d; color: white; font-size:1.5rem;">
+    © 2021 Copyright
+    <p style="font-size:1rem; padding-top:0.5rem;">Pem-Web News</p>
+  </div>
+  <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
 </body>
 
 </html>

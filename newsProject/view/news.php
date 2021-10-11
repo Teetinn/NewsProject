@@ -7,13 +7,6 @@
     $resultberita = $db->query($query);
 
     $berita = $resultberita->fetch_assoc();
-    // echo $berita['judul'];
-    // echo $berita['tanggal'];
-    // echo "<div>
-    // <img src='{$berita['gambar']}'>
-    //       </div>";
-    // echo $berita['konten'];
-    // banu ganteng
     }
 ?>
 
@@ -27,6 +20,10 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
+   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+   <script src="assets/app.js"></script>
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Staatliches&display=swap" rel="stylesheet">
@@ -38,6 +35,10 @@
 </head>
 
 <body>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <div class="row ctr-container-header">
     <div class="container-logo col-3">
       <i class="bi bi-slack"></i>
@@ -78,6 +79,11 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-justified">
     <div class="container-fluid">
+      <div class="burger" onclick="drop()">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
      <ul id="drop" class="navbar-nav nav-links toggle-hide me-auto mb-2 mb-lg-0 nav-fill nav-justified">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="?view=dashboard"><i class="fas fa-home"></i> Home</a>
@@ -110,8 +116,8 @@
 
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-7" >
-      <div class="card col-lg-11 mb-5">
+    <div class="col-lg-7 col-mb-12">
+      <div class="card col-lg-11 col-mb-12 mb-5">
         
 
         <div class="card-body main-container">
@@ -133,15 +139,7 @@
                   </div>
             </form>
             <?php
-              // echo "<form method='POST' action=''>
-              //   <input type='hidden' name='uid' value='Anonymous'>
-              //   <input type='hidden' name='date' value=''>
-              //   <textarea class='space-comment' id='Comment' rows='4' cols='50' name='Comment'>
-              //   </textarea>
-
-              //   <button type='submit' name='submitcomment' value='submit' class='btn btn-primary mt-3'>Kirim</button>
-              // </form>";
-
+              
               $resultberita = $db->query("SELECT * FROM comments WHERE IDberita = '$idnews'");
               
               foreach($resultberita as $comment) {
@@ -199,22 +197,21 @@
           </div> -->
       </div>
     </div>
-              </div>
+  
 
     <?php
-      echo " <div class='col-lg-3 col-md-12 color-white news-sidebar clearfix'>";
+      echo " <div class='col-lg-3 col-md-12 color-white news-sidebar'>";
  
       for($i = 0; $i < 5; $i++){
-          $randomID = mt_rand(0, 12);
-          var_dump($randomID);
+          // $randomID = mt_rand(0, 12);
 
              echo "
               <div class='row'>
-                <div class='card text-end col-lg-11 side-card'>
+                <div class='card text-end col-lg-11 side-card' data-aos='fade-left''>
                   <div class='card-body'>
-                    <img src=\"{$news[$randomID]->gambar}\" class='card-img-top' alt='...'>
-                    <h5 class='card-title'>{$news[$randomID]->judul}</h5>
-                    <a href=\"?view=news&id={$news[$randomID]->id}\" class='btn btn-primary view-news'>Lihat Berita</a>
+                    <img src=\"{$news[$i]->gambar}\" class='card-img-top' alt='...'>
+                    <h5 class='card-title'>{$news[$i]->judul}</h5>
+                    <a href=\"?view=news&id={$news[$i]->id}\" class='btn btn-primary view-news'>Lihat Berita</a>
                   </div>
                 </div>
                 <br>

@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <section class="vh-100 bg-image" style="background-image: url('assets/wallpaper.jpg');">
+  <section class="vh-100 bg-image" style="background-image: url('assets/reg-img.jpg'); background-size:contain;">
     <div class="mask d-flex align-items-center h-100 ">
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -88,7 +88,7 @@
                 <input class="form-control form-control-file" type="file" name="foto" id="foto">
               </div>
 
-                  <div class="d-flex justify-content-center">
+                  <div class="d-flex justify-content-center" style="padding:1rem;">
                     <button type="submit" name="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                   </div>
 

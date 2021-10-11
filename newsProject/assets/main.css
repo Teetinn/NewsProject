@@ -88,8 +88,13 @@ body {
 
 .container-menu {
   width: 100%;
+<<<<<<< HEAD
   display: inline-block;
   margin-left: 10rem;
+=======
+  display: flex;
+  margin-left: 5rem;
+>>>>>>> 1dbbe1498533ec4225eb67241db6739b1dc19019
   margin-right: -10rem;
 }
 

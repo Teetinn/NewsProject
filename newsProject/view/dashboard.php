@@ -10,6 +10,9 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Staatliches&display=swap" rel="stylesheet">
@@ -28,6 +31,10 @@
 </head>
 
 <body>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <div class="row ctr-container-header">
     <div class="container-logo col-3">
       <i class="bi bi-slack"></i>
@@ -184,10 +191,9 @@
     
       for($i = 0; $i < 3; $i++){
           // $randomID = mt_rand(0, $ctr-1);
-          // var_dump($randomID);
              echo "
               <div class='row'>
-              <div class='card text-end col-lg-11 side-card'>
+              <div class='card text-end col-lg-11 side-card' data-aos='fade-left''>
                 <div class='card-body'>
                   <img src=\"{$news[$i]->gambar}\" class='card-img-top' alt='...'>
                   <h5 class='card-title'>{$news[$i]->judul}</h5>
@@ -221,16 +227,6 @@
         </form>
       </section>
       <!-- Section: Form -->
-
-      <!-- Section: Text -->
-      <!-- <section class="mb-4">
-      <p style="font-size:2rem; padding: 5rem;">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-        eum harum corrupti dicta, aliquam sequi voluptate quas.
-      </p>
-    </section> -->
-      <!-- Section: Text -->
 
       <!-- Section: Links -->
       <section class="">
